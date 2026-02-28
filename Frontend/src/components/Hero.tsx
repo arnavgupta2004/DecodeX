@@ -1,0 +1,111 @@
+import { motion } from "framer-motion";
+import heroBg from "@/assets/hero-bg.jpg";
+
+export const Hero = () => (
+  <section className="relative min-h-screen flex items-end pb-24 overflow-hidden">
+    {/* Background image */}
+    <img
+      src={heroBg}
+      alt=""
+      className="absolute inset-0 w-full h-full object-cover"
+    />
+    <div className="absolute inset-0 hero-overlay" />
+
+    {/* Top bar */}
+    <div className="absolute top-0 left-0 right-0 z-20">
+      <div className="container max-w-7xl mx-auto px-8 py-6 flex items-center justify-between">
+        <div className="flex items-center gap-3">
+          <div className="w-8 h-[2px] bg-gold" />
+          <span className="font-mono text-[11px] tracking-[0.25em] uppercase text-gold">
+            NLD Synapse 2026
+          </span>
+        </div>
+        <nav className="hidden md:flex items-center gap-8">
+          {["Overview", "Baseline", "Recalibration", "Optimization", "Verdict"].map(
+            (item, i) => (
+              <a
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                className="font-sans text-[13px] text-foreground/50 hover:text-gold transition-colors tracking-wide"
+              >
+                {item}
+              </a>
+            )
+          )}
+        </nav>
+      </div>
+      <div className="section-divider" />
+    </div>
+
+    {/* Hero content */}
+    <div className="container max-w-7xl mx-auto px-8 relative z-10">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <div className="flex items-center gap-4 mb-8">
+          <div className="w-12 h-[1px] bg-gold" />
+          <span className="font-mono text-[11px] tracking-[0.3em] uppercase text-gold/80">
+            Data Analytics Finale
+          </span>
+        </div>
+
+        <h1 className="font-serif text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight leading-[0.9] mb-6">
+          <span className="text-foreground">Decode</span>
+          <br />
+          <span className="gold-text italic">X</span>
+        </h1>
+
+        <p className="font-sans text-lg md:text-xl text-foreground/40 max-w-xl mb-14 leading-relaxed font-light">
+          Diagnosis → Adaptation → Constrained Optimization
+        </p>
+
+        <div className="flex flex-wrap gap-12 mb-8">
+          <HeroStat label="Team" value="Your Team" />
+          <HeroStat label="Case No." value="XX" />
+          <HeroStat label="Date" value="28 Feb — 01 Mar" />
+          <HeroStat label="Institution" value="N. L. Dalmia IMSR" />
+        </div>
+      </motion.div>
+    </div>
+
+    {/* Stage progress bar at bottom */}
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.8 }}
+      className="absolute bottom-0 left-0 right-0 z-20"
+    >
+      <div className="container max-w-7xl mx-auto px-8">
+        <div className="grid grid-cols-3 border-t border-border/40">
+          {[
+            { n: "01", label: "Baseline Analysis", time: "11:00 AM" },
+            { n: "02", label: "Regime Shift", time: "7:00 PM" },
+            { n: "03", label: "Board Directive", time: "1:00 AM" },
+          ].map((s, i) => (
+            <div
+              key={s.n}
+              className={`py-5 px-4 flex items-center gap-4 ${
+                i < 2 ? "border-r border-border/40" : ""
+              }`}
+            >
+              <span className="font-serif text-2xl text-gold/60 font-semibold">{s.n}</span>
+              <div>
+                <p className="text-[13px] font-medium text-foreground/80">{s.label}</p>
+                <p className="font-mono text-[10px] text-foreground/30 tracking-wider">{s.time}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </motion.div>
+  </section>
+);
+
+const HeroStat = ({ label, value }: { label: string; value: string }) => (
+  <div>
+    <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-gold/50 mb-1">{label}</p>
+    <p className="font-sans text-sm text-foreground/80 font-medium">{value}</p>
+  </div>
+);

@@ -1,0 +1,794 @@
+{
+  "summary": {
+    "stage1": {
+      "totalPenalty": 115509,
+      "naivePenalty": 3248135,
+      "penaltyReductionPct": 96.4,
+      "mape": "0.28",
+      "rmse": "6.56",
+      "intervals": 56679
+    },
+    "stage2": {
+      "totalPenalty": 189033,
+      "rmse": "116.31",
+      "intervals": 2977
+    },
+    "stage3": {
+      "totalPenalty": 200349,
+      "stage2Penalty": 189033,
+      "naivePenalty": 186651,
+      "penaltyReductionVsNaive": "-7.3",
+      "peakViolationsOver5Pct": 3,
+      "intervals": 2977
+    }
+  },
+  "chartData": {
+    "stage1": [
+      {
+        "date": "2021-03-02",
+        "actual": 1228,
+        "forecast": 1229,
+        "penalty": 155
+      },
+      {
+        "date": "2021-03-03",
+        "actual": 1228,
+        "forecast": 1229,
+        "penalty": 144
+      },
+      {
+        "date": "2021-03-04",
+        "actual": 1241,
+        "forecast": 1242,
+        "penalty": 136
+      },
+      {
+        "date": "2021-03-05",
+        "actual": 1267,
+        "forecast": 1267,
+        "penalty": 126
+      },
+      {
+        "date": "2021-03-06",
+        "actual": 1270,
+        "forecast": 1271,
+        "penalty": 133
+      },
+      {
+        "date": "2021-03-07",
+        "actual": 1096,
+        "forecast": 1096,
+        "penalty": 142
+      },
+      {
+        "date": "2021-03-08",
+        "actual": 1235,
+        "forecast": 1236,
+        "penalty": 131
+      },
+      {
+        "date": "2021-03-09",
+        "actual": 1255,
+        "forecast": 1256,
+        "penalty": 163
+      },
+      {
+        "date": "2021-03-10",
+        "actual": 1275,
+        "forecast": 1276,
+        "penalty": 144
+      },
+      {
+        "date": "2021-03-11",
+        "actual": 1236,
+        "forecast": 1236,
+        "penalty": 147
+      },
+      {
+        "date": "2021-03-12",
+        "actual": 1253,
+        "forecast": 1255,
+        "penalty": 130
+      },
+      {
+        "date": "2021-03-13",
+        "actual": 1216,
+        "forecast": 1217,
+        "penalty": 165
+      },
+      {
+        "date": "2021-03-14",
+        "actual": 1115,
+        "forecast": 1116,
+        "penalty": 136
+      },
+      {
+        "date": "2021-03-15",
+        "actual": 1271,
+        "forecast": 1271,
+        "penalty": 230
+      },
+      {
+        "date": "2021-03-16",
+        "actual": 1286,
+        "forecast": 1287,
+        "penalty": 139
+      },
+      {
+        "date": "2021-03-17",
+        "actual": 1313,
+        "forecast": 1314,
+        "penalty": 146
+      },
+      {
+        "date": "2021-03-18",
+        "actual": 1325,
+        "forecast": 1326,
+        "penalty": 148
+      },
+      {
+        "date": "2021-03-19",
+        "actual": 1305,
+        "forecast": 1306,
+        "penalty": 122
+      },
+      {
+        "date": "2021-03-20",
+        "actual": 1253,
+        "forecast": 1253,
+        "penalty": 180
+      },
+      {
+        "date": "2021-03-21",
+        "actual": 1128,
+        "forecast": 1129,
+        "penalty": 153
+      },
+      {
+        "date": "2021-03-22",
+        "actual": 1283,
+        "forecast": 1283,
+        "penalty": 188
+      },
+      {
+        "date": "2021-03-23",
+        "actual": 1289,
+        "forecast": 1290,
+        "penalty": 132
+      },
+      {
+        "date": "2021-03-24",
+        "actual": 1326,
+        "forecast": 1327,
+        "penalty": 180
+      },
+      {
+        "date": "2021-03-25",
+        "actual": 1332,
+        "forecast": 1333,
+        "penalty": 157
+      },
+      {
+        "date": "2021-03-26",
+        "actual": 1361,
+        "forecast": 1362,
+        "penalty": 154
+      },
+      {
+        "date": "2021-03-27",
+        "actual": 1336,
+        "forecast": 1337,
+        "penalty": 205
+      },
+      {
+        "date": "2021-03-28",
+        "actual": 1280,
+        "forecast": 1280,
+        "penalty": 284
+      },
+      {
+        "date": "2021-03-29",
+        "actual": 1183,
+        "forecast": 1182,
+        "penalty": 559
+      },
+      {
+        "date": "2021-03-30",
+        "actual": 1344,
+        "forecast": 1344,
+        "penalty": 221
+      },
+      {
+        "date": "2021-03-31",
+        "actual": 1326,
+        "forecast": 1325,
+        "penalty": 237
+      },
+      {
+        "date": "2021-04-01",
+        "actual": 1335,
+        "forecast": 1335,
+        "penalty": 197
+      },
+      {
+        "date": "2021-04-02",
+        "actual": 1286,
+        "forecast": 1287,
+        "penalty": 211
+      },
+      {
+        "date": "2021-04-03",
+        "actual": 1273,
+        "forecast": 1274,
+        "penalty": 270
+      },
+      {
+        "date": "2021-04-04",
+        "actual": 1171,
+        "forecast": 1175,
+        "penalty": 355
+      },
+      {
+        "date": "2021-04-05",
+        "actual": 1312,
+        "forecast": 1313,
+        "penalty": 213
+      },
+      {
+        "date": "2021-04-06",
+        "actual": 1297,
+        "forecast": 1298,
+        "penalty": 180
+      },
+      {
+        "date": "2021-04-07",
+        "actual": 1318,
+        "forecast": 1318,
+        "penalty": 231
+      },
+      {
+        "date": "2021-04-08",
+        "actual": 1321,
+        "forecast": 1322,
+        "penalty": 135
+      },
+      {
+        "date": "2021-04-09",
+        "actual": 1305,
+        "forecast": 1306,
+        "penalty": 132
+      },
+      {
+        "date": "2021-04-10",
+        "actual": 1162,
+        "forecast": 1162,
+        "penalty": 172
+      },
+      {
+        "date": "2021-04-11",
+        "actual": 1140,
+        "forecast": 1140,
+        "penalty": 171
+      },
+      {
+        "date": "2021-04-12",
+        "actual": 1336,
+        "forecast": 1337,
+        "penalty": 150
+      },
+      {
+        "date": "2021-04-13",
+        "actual": 1339,
+        "forecast": 1340,
+        "penalty": 173
+      },
+      {
+        "date": "2021-04-14",
+        "actual": 1377,
+        "forecast": 1378,
+        "penalty": 151
+      },
+      {
+        "date": "2021-04-15",
+        "actual": 1340,
+        "forecast": 1342,
+        "penalty": 174
+      },
+      {
+        "date": "2021-04-16",
+        "actual": 1314,
+        "forecast": 1315,
+        "penalty": 162
+      },
+      {
+        "date": "2021-04-17",
+        "actual": 1271,
+        "forecast": 1272,
+        "penalty": 161
+      },
+      {
+        "date": "2021-04-18",
+        "actual": 1234,
+        "forecast": 1235,
+        "penalty": 192
+      },
+      {
+        "date": "2021-04-19",
+        "actual": 1341,
+        "forecast": 1341,
+        "penalty": 165
+      },
+      {
+        "date": "2021-04-20",
+        "actual": 1322,
+        "forecast": 1323,
+        "penalty": 187
+      },
+      {
+        "date": "2021-04-21",
+        "actual": 1284,
+        "forecast": 1285,
+        "penalty": 161
+      },
+      {
+        "date": "2021-04-22",
+        "actual": 1285,
+        "forecast": 1285,
+        "penalty": 161
+      },
+      {
+        "date": "2021-04-23",
+        "actual": 1238,
+        "forecast": 1238,
+        "penalty": 157
+      },
+      {
+        "date": "2021-04-24",
+        "actual": 1203,
+        "forecast": 1204,
+        "penalty": 159
+      },
+      {
+        "date": "2021-04-25",
+        "actual": 1190,
+        "forecast": 1191,
+        "penalty": 190
+      },
+      {
+        "date": "2021-04-26",
+        "actual": 1352,
+        "forecast": 1353,
+        "penalty": 176
+      },
+      {
+        "date": "2021-04-27",
+        "actual": 1339,
+        "forecast": 1340,
+        "penalty": 158
+      },
+      {
+        "date": "2021-04-28",
+        "actual": 1334,
+        "forecast": 1336,
+        "penalty": 175
+      },
+      {
+        "date": "2021-04-29",
+        "actual": 1328,
+        "forecast": 1329,
+        "penalty": 178
+      },
+      {
+        "date": "2021-04-30",
+        "actual": 1326,
+        "forecast": 1328,
+        "penalty": 192
+      }
+    ],
+    "stage2": [
+      {
+        "date": "2021-05-01",
+        "actual": 1223,
+        "forecast": 1329,
+        "penalty": 5518
+      },
+      {
+        "date": "2021-05-02",
+        "actual": 1212,
+        "forecast": 1327,
+        "penalty": 5810
+      },
+      {
+        "date": "2021-05-03",
+        "actual": 1318,
+        "forecast": 1229,
+        "penalty": 10731
+      },
+      {
+        "date": "2021-05-04",
+        "actual": 1353,
+        "forecast": 1217,
+        "penalty": 14237
+      },
+      {
+        "date": "2021-05-05",
+        "actual": 1393,
+        "forecast": 1319,
+        "penalty": 7521
+      },
+      {
+        "date": "2021-05-06",
+        "actual": 1376,
+        "forecast": 1353,
+        "penalty": 3094
+      },
+      {
+        "date": "2021-05-07",
+        "actual": 1372,
+        "forecast": 1395,
+        "penalty": 1292
+      },
+      {
+        "date": "2021-05-08",
+        "actual": 1334,
+        "forecast": 1378,
+        "penalty": 2462
+      },
+      {
+        "date": "2021-05-09",
+        "actual": 1269,
+        "forecast": 1374,
+        "penalty": 6367
+      },
+      {
+        "date": "2021-05-10",
+        "actual": 1350,
+        "forecast": 1336,
+        "penalty": 3361
+      },
+      {
+        "date": "2021-05-11",
+        "actual": 1329,
+        "forecast": 1271,
+        "penalty": 7617
+      },
+      {
+        "date": "2021-05-12",
+        "actual": 1317,
+        "forecast": 1350,
+        "penalty": 1586
+      },
+      {
+        "date": "2021-05-13",
+        "actual": 1287,
+        "forecast": 1331,
+        "penalty": 2129
+      },
+      {
+        "date": "2021-05-14",
+        "actual": 1295,
+        "forecast": 1321,
+        "penalty": 1367
+      },
+      {
+        "date": "2021-05-15",
+        "actual": 1303,
+        "forecast": 1290,
+        "penalty": 5463
+      },
+      {
+        "date": "2021-05-16",
+        "actual": 1210,
+        "forecast": 1294,
+        "penalty": 6946
+      },
+      {
+        "date": "2021-05-17",
+        "actual": 1124,
+        "forecast": 1292,
+        "penalty": 8404
+      },
+      {
+        "date": "2021-05-18",
+        "actual": 1094,
+        "forecast": 1219,
+        "penalty": 8846
+      },
+      {
+        "date": "2021-05-19",
+        "actual": 1142,
+        "forecast": 1133,
+        "penalty": 13304
+      },
+      {
+        "date": "2021-05-20",
+        "actual": 1179,
+        "forecast": 1096,
+        "penalty": 8303
+      },
+      {
+        "date": "2021-05-21",
+        "actual": 1219,
+        "forecast": 1145,
+        "penalty": 7482
+      },
+      {
+        "date": "2021-05-22",
+        "actual": 1206,
+        "forecast": 1180,
+        "penalty": 4916
+      },
+      {
+        "date": "2021-05-23",
+        "actual": 1160,
+        "forecast": 1222,
+        "penalty": 6898
+      },
+      {
+        "date": "2021-05-24",
+        "actual": 1290,
+        "forecast": 1210,
+        "penalty": 8228
+      },
+      {
+        "date": "2021-05-25",
+        "actual": 1307,
+        "forecast": 1162,
+        "penalty": 15061
+      },
+      {
+        "date": "2021-05-26",
+        "actual": 1274,
+        "forecast": 1291,
+        "penalty": 2848
+      },
+      {
+        "date": "2021-05-27",
+        "actual": 1307,
+        "forecast": 1310,
+        "penalty": 1189
+      },
+      {
+        "date": "2021-05-28",
+        "actual": 1338,
+        "forecast": 1277,
+        "penalty": 6356
+      },
+      {
+        "date": "2021-05-29",
+        "actual": 1327,
+        "forecast": 1309,
+        "penalty": 3166
+      },
+      {
+        "date": "2021-05-30",
+        "actual": 1246,
+        "forecast": 1338,
+        "penalty": 7231
+      },
+      {
+        "date": "2021-05-31",
+        "actual": 1316,
+        "forecast": 1329,
+        "penalty": 1271
+      },
+      {
+        "date": "2021-06-01",
+        "actual": 1521,
+        "forecast": 1580,
+        "penalty": 30
+      }
+    ],
+    "stage3": [
+      {
+        "date": "2021-05-01",
+        "actual": 1223,
+        "forecast": 1359,
+        "penalty": 6958
+      },
+      {
+        "date": "2021-05-02",
+        "actual": 1212,
+        "forecast": 1357,
+        "penalty": 7250
+      },
+      {
+        "date": "2021-05-03",
+        "actual": 1318,
+        "forecast": 1259,
+        "penalty": 8799
+      },
+      {
+        "date": "2021-05-04",
+        "actual": 1353,
+        "forecast": 1247,
+        "penalty": 11323
+      },
+      {
+        "date": "2021-05-05",
+        "actual": 1393,
+        "forecast": 1349,
+        "penalty": 7251
+      },
+      {
+        "date": "2021-05-06",
+        "actual": 1376,
+        "forecast": 1383,
+        "penalty": 4309
+      },
+      {
+        "date": "2021-05-07",
+        "actual": 1372,
+        "forecast": 1425,
+        "penalty": 2732
+      },
+      {
+        "date": "2021-05-08",
+        "actual": 1334,
+        "forecast": 1408,
+        "penalty": 3902
+      },
+      {
+        "date": "2021-05-09",
+        "actual": 1269,
+        "forecast": 1404,
+        "penalty": 7807
+      },
+      {
+        "date": "2021-05-10",
+        "actual": 1350,
+        "forecast": 1366,
+        "penalty": 4451
+      },
+      {
+        "date": "2021-05-11",
+        "actual": 1329,
+        "forecast": 1301,
+        "penalty": 7213
+      },
+      {
+        "date": "2021-05-12",
+        "actual": 1317,
+        "forecast": 1380,
+        "penalty": 3026
+      },
+      {
+        "date": "2021-05-13",
+        "actual": 1287,
+        "forecast": 1361,
+        "penalty": 3569
+      },
+      {
+        "date": "2021-05-14",
+        "actual": 1295,
+        "forecast": 1351,
+        "penalty": 2807
+      },
+      {
+        "date": "2021-05-15",
+        "actual": 1303,
+        "forecast": 1320,
+        "penalty": 3719
+      },
+      {
+        "date": "2021-05-16",
+        "actual": 1210,
+        "forecast": 1324,
+        "penalty": 8386
+      },
+      {
+        "date": "2021-05-17",
+        "actual": 1124,
+        "forecast": 1322,
+        "penalty": 9844
+      },
+      {
+        "date": "2021-05-18",
+        "actual": 1094,
+        "forecast": 1249,
+        "penalty": 10071
+      },
+      {
+        "date": "2021-05-19",
+        "actual": 1142,
+        "forecast": 1163,
+        "penalty": 9207
+      },
+      {
+        "date": "2021-05-20",
+        "actual": 1179,
+        "forecast": 1126,
+        "penalty": 8227
+      },
+      {
+        "date": "2021-05-21",
+        "actual": 1219,
+        "forecast": 1175,
+        "penalty": 7426
+      },
+      {
+        "date": "2021-05-22",
+        "actual": 1206,
+        "forecast": 1210,
+        "penalty": 6191
+      },
+      {
+        "date": "2021-05-23",
+        "actual": 1160,
+        "forecast": 1252,
+        "penalty": 8338
+      },
+      {
+        "date": "2021-05-24",
+        "actual": 1290,
+        "forecast": 1240,
+        "penalty": 7374
+      },
+      {
+        "date": "2021-05-25",
+        "actual": 1307,
+        "forecast": 1192,
+        "penalty": 12330
+      },
+      {
+        "date": "2021-05-26",
+        "actual": 1274,
+        "forecast": 1321,
+        "penalty": 4288
+      },
+      {
+        "date": "2021-05-27",
+        "actual": 1307,
+        "forecast": 1340,
+        "penalty": 2525
+      },
+      {
+        "date": "2021-05-28",
+        "actual": 1338,
+        "forecast": 1307,
+        "penalty": 5628
+      },
+      {
+        "date": "2021-05-29",
+        "actual": 1327,
+        "forecast": 1339,
+        "penalty": 4042
+      },
+      {
+        "date": "2021-05-30",
+        "actual": 1246,
+        "forecast": 1368,
+        "penalty": 8671
+      },
+      {
+        "date": "2021-05-31",
+        "actual": 1316,
+        "forecast": 1359,
+        "penalty": 2654
+      },
+      {
+        "date": "2021-06-01",
+        "actual": 1521,
+        "forecast": 1580,
+        "penalty": 30
+      }
+    ]
+  },
+  "penaltyByStage": [
+    {
+      "stage": "Stage 1",
+      "penalty": 115509,
+      "label": "Baseline"
+    },
+    {
+      "stage": "Stage 2",
+      "penalty": 189033,
+      "label": "Post-Regime Shift"
+    },
+    {
+      "stage": "Stage 3",
+      "penalty": 200349,
+      "label": "Constrained"
+    }
+  ]
+}
