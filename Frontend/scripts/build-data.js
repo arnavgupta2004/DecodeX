@@ -75,21 +75,20 @@ const s2RMSE = Math.sqrt(
   s2Deviation.reduce((a, d) => a + d * d, 0) / s2Deviation.length
 );
 
-// Stage 3
+// Stage 3 (updated schema: Forecast_S3_Adaptive, Penalty_S3_INR, C2_Violation)
 const s3Path = path.join(ROOT, "Phase 3", "GRIDSHIELD_Stage3_Forecast.csv");
 const s3Raw = fs.readFileSync(s3Path, "utf-8");
 const s3 = parseCSV(s3Raw);
 
-const s3Penalty = s3.map((r) => num(r.Penalty_Stage3_INR));
+const s3Penalty = s3.map((r) => num(r.Penalty_S3_INR ?? r.Penalty_Stage3_INR));
 const s3TotalPenalty = s3Penalty.reduce((a, b) => a + b, 0);
-const s3PenaltyS2 = s3.map((r) => num(r.Penalty_Stage2_INR));
-const s3TotalPenaltyS2 = s3PenaltyS2.reduce((a, b) => a + b, 0);
-const s3Naive = s3.map((r) => num(r.Penalty_Naive_INR));
-const s3NaiveTotal = s3Naive.reduce((a, b) => a + b, 0);
+// Stage 2 comparison: use Stage 2 file total (same test period)
+const s3TotalPenaltyS2 = s2TotalPenalty;
 
-// Peak violations (Stage 3)
-const s3Peak = s3.filter((r) => num(r.Is_Peak_Hour) === 1);
-const s3PeakViolations = s3Peak.filter((r) => num(r.Peak_Underest_Pct) > 5).length;
+// C2 violations: count rows where C2_Violation is True
+const s3PeakViolations = s3.filter(
+  (r) => String(r.C2_Violation ?? "").toLowerCase() === "true"
+).length;
 
 // Aggregated chart data - sample by day for Stage 1 (too many points)
 const s1ByDay = {};
@@ -136,7 +135,9 @@ const s2ChartData = Object.values(s2ByDay)
     penalty: Math.round(d.penalty),
   }));
 
-// Stage 3 chart
+// Stage 3 chart (Forecast_S3_Adaptive, Penalty_S3_INR)
+const s3ForecastCol = (r) => num(r.Forecast_S3_Adaptive ?? r.Forecast_Stage3_kW);
+const s3PenaltyCol = (r) => num(r.Penalty_S3_INR ?? r.Penalty_Stage3_INR);
 const s3ByDay = {};
 s3.forEach((r) => {
   const dt = r.DateTime?.slice(0, 10) || "";
@@ -145,8 +146,8 @@ s3.forEach((r) => {
     s3ByDay[dt] = { date: dt, actual: 0, forecast: 0, penalty: 0, count: 0 };
   }
   s3ByDay[dt].actual += num(r.Actual_Load_kW);
-  s3ByDay[dt].forecast += num(r.Forecast_Stage3_kW);
-  s3ByDay[dt].penalty += num(r.Penalty_Stage3_INR);
+  s3ByDay[dt].forecast += s3ForecastCol(r);
+  s3ByDay[dt].penalty += s3PenaltyCol(r);
   s3ByDay[dt].count += 1;
 });
 const s3ChartData = Object.values(s3ByDay)
@@ -192,8 +193,8 @@ const s1PeakPen = s1.filter((r) => num(r.Is_Peak) === 1).reduce((a, r) => a + nu
 const s1OPPen   = s1.filter((r) => num(r.Is_Peak) !== 1).reduce((a, r) => a + num(r.Penalty_INR), 0);
 const s2PeakPen = s2.filter((r) => num(r.Is_Peak_Hour) === 1).reduce((a, r) => a + num(r.Penalty_Stage2_INR), 0);
 const s2OPPen   = s2.filter((r) => num(r.Is_Peak_Hour) !== 1).reduce((a, r) => a + num(r.Penalty_Stage2_INR), 0);
-const s3PeakPen = s3.filter((r) => num(r.Is_Peak_Hour) === 1).reduce((a, r) => a + num(r.Penalty_Stage3_INR), 0);
-const s3OPPen   = s3.filter((r) => num(r.Is_Peak_Hour) !== 1).reduce((a, r) => a + num(r.Penalty_Stage3_INR), 0);
+const s3PeakPen = s3.filter((r) => num(r.Is_Peak_Hour) === 1).reduce((a, r) => a + s3PenaltyCol(r), 0);
+const s3OPPen   = s3.filter((r) => num(r.Is_Peak_Hour) !== 1).reduce((a, r) => a + s3PenaltyCol(r), 0);
 const peakBreakdown = [
   { stage: "Stage 1", peak: Math.round(s1PeakPen), offPeak: Math.round(s1OPPen) },
   { stage: "Stage 2", peak: Math.round(s2PeakPen), offPeak: Math.round(s2OPPen) },
@@ -240,11 +241,6 @@ const output = {
     stage3: {
       totalPenalty: Math.round(s3TotalPenalty),
       stage2Penalty: Math.round(s3TotalPenaltyS2),
-      naivePenalty: Math.round(s3NaiveTotal),
-      penaltyReductionVsNaive: (
-        (1 - s3TotalPenalty / s3NaiveTotal) *
-        100
-      ).toFixed(1),
       peakViolationsOver5Pct: s3PeakViolations,
       intervals: s3.length,
     },

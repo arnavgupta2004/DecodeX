@@ -17,10 +17,11 @@ export interface DashboardSummary {
   stage3: {
     totalPenalty: number;
     stage2Penalty: number;
-    naivePenalty: number;
-    penaltyReductionVsNaive: string;
     peakViolationsOver5Pct: number;
     intervals: number;
+    /** Optional: only if Phase 3 CSV included naive comparison */
+    naivePenalty?: number;
+    penaltyReductionVsNaive?: string;
   };
 }
 

@@ -248,7 +248,7 @@ const Index = () => {
           <AlertBanner
             type="directive"
             title="Confidential Board Directive"
-            description="C1: Report total, peak, off-peak deviation penalties. C2: Peak underestimation >5% of actual permitted for MAX 3 intervals. C3: Overall forecast bias within [-2%, +3%]. C4: Average forecast uplift vs unbiased model ≤3%. Stage 2 hybrid had 100 peak violations. Targeted per-interval minimum buffer (lift each violating interval to actual×0.95+0.5 kW) on 97 violating peak intervals reduces violations to ≤3 (3 remaining = Cyclone Tauktae, force majeure)."
+            description="C1: Report total, peak, off-peak deviation penalties. C2: Peak underestimation >5% of actual permitted for MAX 3 intervals. C3: Overall forecast bias within [-2%, +3%]. C4: Average forecast uplift vs unbiased model ≤3%. Stage 3 adaptive strategy (Forecast_S3_Adaptive) applies targeted buffers to satisfy constraints; C2 violations are counted from the C2_Violation flag in the output."
           />
 
           <div className="grid lg:grid-cols-3 gap-4">
@@ -265,9 +265,13 @@ const Index = () => {
               highlight
             />
             <MetricCard
-              value={summary ? `${(((summary.stage3.totalPenalty / summary.stage3.stage2Penalty) - 1) * 100).toFixed(1)}%` : "—"}
+              value={
+                summary?.stage3?.stage2Penalty
+                  ? `${(((summary.stage3.totalPenalty / summary.stage3.stage2Penalty) - 1) * 100).toFixed(1)}%`
+                  : "—"
+              }
               label="vs Stage 2"
-              sublabel="Penalty change (targeted buffer)"
+              sublabel="Penalty change"
             />
           </div>
 
@@ -303,11 +307,11 @@ const Index = () => {
               },
               {
                 q: "What trade-offs were accepted?",
-                a: "Chose targeted per-interval minimum buffer over a uniform +180 kW flat buffer. Uniform approach added 89,280 kW of unnecessary buffer to 399 compliant intervals, costing Rs. 2.00L (+6%). Targeted approach intervenes only at the 97 violating intervals, adding just 6,476 kW total — achieving Rs. 1.79L (−5.1% vs Stage 2). The 3 remaining violations are Cyclone Tauktae (force majeure, unforeseeable at 48h horizon).",
+                a: "Stage 3 adaptive strategy (Q67 off-peak, Q75 + adaptive buffer at peak) trades penalty level against C2 compliance. Current run: total penalty and C2 violation count are driven by the Phase 3 output (Forecast_S3_Adaptive, Penalty_S3_INR, C2_Violation). Remaining violations in extreme events (e.g. Cyclone Tauktae) are force majeure at 48h horizon.",
               },
               {
                 q: "What is the final recommendation?",
-                a: "Deploy Stage 3 hybrid: Q67 off-peak, Q75 + targeted per-interval buffer during peak (6 PM–10 PM). Each of the 97 violating peak intervals is lifted to actual×0.95+0.5 kW — the minimum required. This satisfies all four board constraints while keeping penalty below Stage 2. Maintain monitoring for extreme weather; consider force majeure clauses for Cyclone-class outliers.",
+                a: "Deploy Stage 3 adaptive hybrid: Q67 off-peak, Q75 + adaptive buffer during peak (6–10 PM) per the GRIDSHIELD Stage 3 forecast. Strategy satisfies board directives to the extent reflected in the C2_Violation and penalty outputs. Maintain monitoring for extreme weather; consider force majeure clauses for cyclone-class outliers.",
               },
               {
                 q: "What risks remain?",
@@ -346,10 +350,14 @@ const Index = () => {
                 </p>
               </div>
               <p className="font-serif text-2xl font-bold text-foreground/90 mb-4 leading-snug">
-                Q67 Off-Peak + Q75 + Targeted Buffer (Peak)
+                Q67 Off-Peak + Q75 + S3 Adaptive (Peak)
               </p>
               <p className="text-sm text-foreground/40 leading-relaxed mb-6">
-                Final constrained strategy satisfies all four board directives. Total penalty Rs. 1.79L (−5.1% vs Stage 2) — targeted buffer saves Rs. 9,714 over Stage 2 while achieving full constraint compliance. Peak violations reduced from 100 to 3 (all Cyclone Tauktae, force majeure).
+                Final constrained strategy uses Forecast_S3_Adaptive. Total penalty{" "}
+                {summary ? formatINR(summary.stage3.totalPenalty) : "—"}
+                {summary?.stage3?.stage2Penalty != null && summary.stage3.stage2Penalty > 0
+                  ? ` (${(((summary.stage3.totalPenalty / summary.stage3.stage2Penalty) - 1) * 100).toFixed(1)}% vs Stage 2)`
+                  : ""}. C2 violations: {summary ? `${summary.stage3.peakViolationsOver5Pct} intervals` : "—"} (max 3 allowed).
               </p>
               <div className="gold-line w-full mb-6" />
               <div className="grid grid-cols-2 gap-4">

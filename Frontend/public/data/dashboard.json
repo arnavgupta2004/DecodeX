@@ -14,11 +14,9 @@
       "intervals": 2977
     },
     "stage3": {
-      "totalPenalty": 179319,
+      "totalPenalty": 183336,
       "stage2Penalty": 189033,
-      "naivePenalty": 186651,
-      "penaltyReductionVsNaive": "3.9",
-      "peakViolationsOver5Pct": 3,
+      "peakViolationsOver5Pct": 26,
       "intervals": 2977
     }
   },
@@ -595,176 +593,176 @@
       {
         "date": "2021-05-03",
         "actual": 1318,
-        "forecast": 1238,
-        "penalty": 9517
+        "forecast": 1235,
+        "penalty": 10003
       },
       {
         "date": "2021-05-04",
         "actual": 1353,
-        "forecast": 1229,
-        "penalty": 12555
+        "forecast": 1224,
+        "penalty": 13241
       },
       {
         "date": "2021-05-05",
         "actual": 1393,
-        "forecast": 1319,
-        "penalty": 7503
+        "forecast": 1321,
+        "penalty": 7261
       },
       {
         "date": "2021-05-06",
         "actual": 1376,
-        "forecast": 1353,
-        "penalty": 3094
+        "forecast": 1356,
+        "penalty": 3041
       },
       {
         "date": "2021-05-07",
         "actual": 1372,
-        "forecast": 1395,
-        "penalty": 1292
+        "forecast": 1396,
+        "penalty": 1358
       },
       {
         "date": "2021-05-08",
         "actual": 1334,
-        "forecast": 1378,
-        "penalty": 2462
+        "forecast": 1382,
+        "penalty": 2633
       },
       {
         "date": "2021-05-09",
         "actual": 1269,
-        "forecast": 1374,
-        "penalty": 6367
+        "forecast": 1375,
+        "penalty": 6417
       },
       {
         "date": "2021-05-10",
         "actual": 1350,
-        "forecast": 1336,
-        "penalty": 3361
+        "forecast": 1345,
+        "penalty": 3427
       },
       {
         "date": "2021-05-11",
         "actual": 1329,
-        "forecast": 1275,
-        "penalty": 6977
+        "forecast": 1296,
+        "penalty": 6952
       },
       {
         "date": "2021-05-12",
         "actual": 1317,
-        "forecast": 1350,
-        "penalty": 1586
+        "forecast": 1363,
+        "penalty": 2191
       },
       {
         "date": "2021-05-13",
         "actual": 1287,
-        "forecast": 1331,
-        "penalty": 2129
+        "forecast": 1347,
+        "penalty": 2855
       },
       {
         "date": "2021-05-14",
         "actual": 1295,
-        "forecast": 1321,
-        "penalty": 1367
+        "forecast": 1334,
+        "penalty": 1998
       },
       {
         "date": "2021-05-15",
         "actual": 1303,
-        "forecast": 1296,
-        "penalty": 4680
+        "forecast": 1305,
+        "penalty": 3536
       },
       {
         "date": "2021-05-16",
         "actual": 1210,
-        "forecast": 1294,
-        "penalty": 6946
+        "forecast": 1304,
+        "penalty": 7423
       },
       {
         "date": "2021-05-17",
         "actual": 1124,
-        "forecast": 1292,
-        "penalty": 8404
+        "forecast": 1293,
+        "penalty": 8420
       },
       {
         "date": "2021-05-18",
         "actual": 1094,
-        "forecast": 1219,
-        "penalty": 8846
+        "forecast": 1248,
+        "penalty": 10056
       },
       {
         "date": "2021-05-19",
         "actual": 1142,
-        "forecast": 1154,
-        "penalty": 10363
+        "forecast": 1192,
+        "penalty": 10347
       },
       {
         "date": "2021-05-20",
         "actual": 1179,
-        "forecast": 1097,
-        "penalty": 8150
+        "forecast": 1128,
+        "penalty": 8341
       },
       {
         "date": "2021-05-21",
         "actual": 1219,
-        "forecast": 1146,
-        "penalty": 7380
+        "forecast": 1174,
+        "penalty": 7370
       },
       {
         "date": "2021-05-22",
         "actual": 1206,
-        "forecast": 1180,
-        "penalty": 4916
+        "forecast": 1203,
+        "penalty": 5837
       },
       {
         "date": "2021-05-23",
         "actual": 1160,
-        "forecast": 1222,
-        "penalty": 6898
+        "forecast": 1238,
+        "penalty": 7684
       },
       {
         "date": "2021-05-24",
         "actual": 1290,
-        "forecast": 1214,
-        "penalty": 7688
+        "forecast": 1215,
+        "penalty": 7484
       },
       {
         "date": "2021-05-25",
         "actual": 1307,
-        "forecast": 1172,
-        "penalty": 13625
+        "forecast": 1178,
+        "penalty": 12792
       },
       {
         "date": "2021-05-26",
         "actual": 1274,
         "forecast": 1291,
-        "penalty": 2848
+        "penalty": 2862
       },
       {
         "date": "2021-05-27",
         "actual": 1307,
-        "forecast": 1310,
-        "penalty": 1189
+        "forecast": 1311,
+        "penalty": 1160
       },
       {
         "date": "2021-05-28",
         "actual": 1338,
-        "forecast": 1279,
-        "penalty": 6151
+        "forecast": 1283,
+        "penalty": 5519
       },
       {
         "date": "2021-05-29",
         "actual": 1327,
-        "forecast": 1309,
-        "penalty": 3166
+        "forecast": 1311,
+        "penalty": 3147
       },
       {
         "date": "2021-05-30",
         "actual": 1246,
-        "forecast": 1338,
-        "penalty": 7231
+        "forecast": 1339,
+        "penalty": 7264
       },
       {
         "date": "2021-05-31",
         "actual": 1316,
-        "forecast": 1329,
-        "penalty": 1271
+        "forecast": 1332,
+        "penalty": 1360
       },
       {
         "date": "2021-06-01",
@@ -787,7 +785,7 @@
     },
     {
       "stage": "Stage 3",
-      "penalty": 179319,
+      "penalty": 183336,
       "label": "Constrained"
     }
   ],
@@ -950,7 +948,7 @@
     },
     {
       "stage": "Stage 3",
-      "peak": 27610,
+      "peak": 31626,
       "offPeak": 151709
     }
   ],
