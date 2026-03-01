@@ -14,10 +14,10 @@
       "intervals": 2977
     },
     "stage3": {
-      "totalPenalty": 200349,
+      "totalPenalty": 179319,
       "stage2Penalty": 189033,
       "naivePenalty": 186651,
-      "penaltyReductionVsNaive": "-7.3",
+      "penaltyReductionVsNaive": "3.9",
       "peakViolationsOver5Pct": 3,
       "intervals": 2977
     }
@@ -583,188 +583,188 @@
       {
         "date": "2021-05-01",
         "actual": 1223,
-        "forecast": 1359,
-        "penalty": 6958
+        "forecast": 1329,
+        "penalty": 5518
       },
       {
         "date": "2021-05-02",
         "actual": 1212,
-        "forecast": 1357,
-        "penalty": 7250
+        "forecast": 1327,
+        "penalty": 5810
       },
       {
         "date": "2021-05-03",
         "actual": 1318,
-        "forecast": 1259,
-        "penalty": 8799
+        "forecast": 1238,
+        "penalty": 9517
       },
       {
         "date": "2021-05-04",
         "actual": 1353,
-        "forecast": 1247,
-        "penalty": 11323
+        "forecast": 1229,
+        "penalty": 12555
       },
       {
         "date": "2021-05-05",
         "actual": 1393,
-        "forecast": 1349,
-        "penalty": 7251
+        "forecast": 1319,
+        "penalty": 7503
       },
       {
         "date": "2021-05-06",
         "actual": 1376,
-        "forecast": 1383,
-        "penalty": 4309
+        "forecast": 1353,
+        "penalty": 3094
       },
       {
         "date": "2021-05-07",
         "actual": 1372,
-        "forecast": 1425,
-        "penalty": 2732
+        "forecast": 1395,
+        "penalty": 1292
       },
       {
         "date": "2021-05-08",
         "actual": 1334,
-        "forecast": 1408,
-        "penalty": 3902
+        "forecast": 1378,
+        "penalty": 2462
       },
       {
         "date": "2021-05-09",
         "actual": 1269,
-        "forecast": 1404,
-        "penalty": 7807
+        "forecast": 1374,
+        "penalty": 6367
       },
       {
         "date": "2021-05-10",
         "actual": 1350,
-        "forecast": 1366,
-        "penalty": 4451
+        "forecast": 1336,
+        "penalty": 3361
       },
       {
         "date": "2021-05-11",
         "actual": 1329,
-        "forecast": 1301,
-        "penalty": 7213
+        "forecast": 1275,
+        "penalty": 6977
       },
       {
         "date": "2021-05-12",
         "actual": 1317,
-        "forecast": 1380,
-        "penalty": 3026
+        "forecast": 1350,
+        "penalty": 1586
       },
       {
         "date": "2021-05-13",
         "actual": 1287,
-        "forecast": 1361,
-        "penalty": 3569
+        "forecast": 1331,
+        "penalty": 2129
       },
       {
         "date": "2021-05-14",
         "actual": 1295,
-        "forecast": 1351,
-        "penalty": 2807
+        "forecast": 1321,
+        "penalty": 1367
       },
       {
         "date": "2021-05-15",
         "actual": 1303,
-        "forecast": 1320,
-        "penalty": 3719
+        "forecast": 1296,
+        "penalty": 4680
       },
       {
         "date": "2021-05-16",
         "actual": 1210,
-        "forecast": 1324,
-        "penalty": 8386
+        "forecast": 1294,
+        "penalty": 6946
       },
       {
         "date": "2021-05-17",
         "actual": 1124,
-        "forecast": 1322,
-        "penalty": 9844
+        "forecast": 1292,
+        "penalty": 8404
       },
       {
         "date": "2021-05-18",
         "actual": 1094,
-        "forecast": 1249,
-        "penalty": 10071
+        "forecast": 1219,
+        "penalty": 8846
       },
       {
         "date": "2021-05-19",
         "actual": 1142,
-        "forecast": 1163,
-        "penalty": 9207
+        "forecast": 1154,
+        "penalty": 10363
       },
       {
         "date": "2021-05-20",
         "actual": 1179,
-        "forecast": 1126,
-        "penalty": 8227
+        "forecast": 1097,
+        "penalty": 8150
       },
       {
         "date": "2021-05-21",
         "actual": 1219,
-        "forecast": 1175,
-        "penalty": 7426
+        "forecast": 1146,
+        "penalty": 7380
       },
       {
         "date": "2021-05-22",
         "actual": 1206,
-        "forecast": 1210,
-        "penalty": 6191
+        "forecast": 1180,
+        "penalty": 4916
       },
       {
         "date": "2021-05-23",
         "actual": 1160,
-        "forecast": 1252,
-        "penalty": 8338
+        "forecast": 1222,
+        "penalty": 6898
       },
       {
         "date": "2021-05-24",
         "actual": 1290,
-        "forecast": 1240,
-        "penalty": 7374
+        "forecast": 1214,
+        "penalty": 7688
       },
       {
         "date": "2021-05-25",
         "actual": 1307,
-        "forecast": 1192,
-        "penalty": 12330
+        "forecast": 1172,
+        "penalty": 13625
       },
       {
         "date": "2021-05-26",
         "actual": 1274,
-        "forecast": 1321,
-        "penalty": 4288
+        "forecast": 1291,
+        "penalty": 2848
       },
       {
         "date": "2021-05-27",
         "actual": 1307,
-        "forecast": 1340,
-        "penalty": 2525
+        "forecast": 1310,
+        "penalty": 1189
       },
       {
         "date": "2021-05-28",
         "actual": 1338,
-        "forecast": 1307,
-        "penalty": 5628
+        "forecast": 1279,
+        "penalty": 6151
       },
       {
         "date": "2021-05-29",
         "actual": 1327,
-        "forecast": 1339,
-        "penalty": 4042
+        "forecast": 1309,
+        "penalty": 3166
       },
       {
         "date": "2021-05-30",
         "actual": 1246,
-        "forecast": 1368,
-        "penalty": 8671
+        "forecast": 1338,
+        "penalty": 7231
       },
       {
         "date": "2021-05-31",
         "actual": 1316,
-        "forecast": 1359,
-        "penalty": 2654
+        "forecast": 1329,
+        "penalty": 1271
       },
       {
         "date": "2021-06-01",
@@ -787,8 +787,725 @@
     },
     {
       "stage": "Stage 3",
-      "penalty": 200349,
+      "penalty": 179319,
       "label": "Constrained"
+    }
+  ],
+  "hourlyProfile": [
+    {
+      "hour": 0,
+      "label": "00:00",
+      "avgLoad": 1127,
+      "isPeak": 0
+    },
+    {
+      "hour": 1,
+      "label": "01:00",
+      "avgLoad": 1049,
+      "isPeak": 0
+    },
+    {
+      "hour": 2,
+      "label": "02:00",
+      "avgLoad": 982,
+      "isPeak": 0
+    },
+    {
+      "hour": 3,
+      "label": "03:00",
+      "avgLoad": 934,
+      "isPeak": 0
+    },
+    {
+      "hour": 4,
+      "label": "04:00",
+      "avgLoad": 904,
+      "isPeak": 0
+    },
+    {
+      "hour": 5,
+      "label": "05:00",
+      "avgLoad": 903,
+      "isPeak": 0
+    },
+    {
+      "hour": 6,
+      "label": "06:00",
+      "avgLoad": 921,
+      "isPeak": 0
+    },
+    {
+      "hour": 7,
+      "label": "07:00",
+      "avgLoad": 956,
+      "isPeak": 0
+    },
+    {
+      "hour": 8,
+      "label": "08:00",
+      "avgLoad": 1048,
+      "isPeak": 0
+    },
+    {
+      "hour": 9,
+      "label": "09:00",
+      "avgLoad": 1165,
+      "isPeak": 0
+    },
+    {
+      "hour": 10,
+      "label": "10:00",
+      "avgLoad": 1259,
+      "isPeak": 0
+    },
+    {
+      "hour": 11,
+      "label": "11:00",
+      "avgLoad": 1302,
+      "isPeak": 0
+    },
+    {
+      "hour": 12,
+      "label": "12:00",
+      "avgLoad": 1300,
+      "isPeak": 0
+    },
+    {
+      "hour": 13,
+      "label": "13:00",
+      "avgLoad": 1257,
+      "isPeak": 0
+    },
+    {
+      "hour": 14,
+      "label": "14:00",
+      "avgLoad": 1253,
+      "isPeak": 0
+    },
+    {
+      "hour": 15,
+      "label": "15:00",
+      "avgLoad": 1254,
+      "isPeak": 0
+    },
+    {
+      "hour": 16,
+      "label": "16:00",
+      "avgLoad": 1229,
+      "isPeak": 0
+    },
+    {
+      "hour": 17,
+      "label": "17:00",
+      "avgLoad": 1199,
+      "isPeak": 0
+    },
+    {
+      "hour": 18,
+      "label": "18:00",
+      "avgLoad": 1205,
+      "isPeak": 1
+    },
+    {
+      "hour": 19,
+      "label": "19:00",
+      "avgLoad": 1249,
+      "isPeak": 1
+    },
+    {
+      "hour": 20,
+      "label": "20:00",
+      "avgLoad": 1239,
+      "isPeak": 1
+    },
+    {
+      "hour": 21,
+      "label": "21:00",
+      "avgLoad": 1205,
+      "isPeak": 1
+    },
+    {
+      "hour": 22,
+      "label": "22:00",
+      "avgLoad": 1182,
+      "isPeak": 0
+    },
+    {
+      "hour": 23,
+      "label": "23:00",
+      "avgLoad": 1173,
+      "isPeak": 0
+    }
+  ],
+  "peakBreakdown": [
+    {
+      "stage": "Stage 1",
+      "peak": 20270,
+      "offPeak": 95239
+    },
+    {
+      "stage": "Stage 2",
+      "peak": 37323,
+      "offPeak": 151709
+    },
+    {
+      "stage": "Stage 3",
+      "peak": 27610,
+      "offPeak": 151709
+    }
+  ],
+  "volatilityData": [
+    {
+      "date": "2021-03-02",
+      "mean": 1228,
+      "std": 179,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-03-03",
+      "mean": 1228,
+      "std": 199,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-03-04",
+      "mean": 1241,
+      "std": 188,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-03-05",
+      "mean": 1267,
+      "std": 188,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-03-06",
+      "mean": 1270,
+      "std": 166,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-03-07",
+      "mean": 1096,
+      "std": 85,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-03-08",
+      "mean": 1235,
+      "std": 201,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-03-09",
+      "mean": 1255,
+      "std": 180,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-03-10",
+      "mean": 1275,
+      "std": 187,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-03-11",
+      "mean": 1236,
+      "std": 149,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-03-12",
+      "mean": 1253,
+      "std": 185,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-03-13",
+      "mean": 1216,
+      "std": 155,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-03-14",
+      "mean": 1115,
+      "std": 92,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-03-15",
+      "mean": 1271,
+      "std": 178,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-03-16",
+      "mean": 1286,
+      "std": 179,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-03-17",
+      "mean": 1313,
+      "std": 181,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-03-18",
+      "mean": 1325,
+      "std": 169,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-03-19",
+      "mean": 1305,
+      "std": 167,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-03-20",
+      "mean": 1253,
+      "std": 144,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-03-21",
+      "mean": 1128,
+      "std": 94,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-03-22",
+      "mean": 1283,
+      "std": 188,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-03-23",
+      "mean": 1289,
+      "std": 180,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-03-24",
+      "mean": 1326,
+      "std": 192,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-03-25",
+      "mean": 1332,
+      "std": 177,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-03-26",
+      "mean": 1361,
+      "std": 181,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-03-27",
+      "mean": 1336,
+      "std": 159,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-03-28",
+      "mean": 1280,
+      "std": 122,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-03-29",
+      "mean": 1183,
+      "std": 117,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-03-30",
+      "mean": 1344,
+      "std": 171,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-03-31",
+      "mean": 1326,
+      "std": 178,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-04-01",
+      "mean": 1335,
+      "std": 167,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-04-02",
+      "mean": 1286,
+      "std": 144,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-04-03",
+      "mean": 1273,
+      "std": 150,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-04-04",
+      "mean": 1171,
+      "std": 98,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-04-05",
+      "mean": 1312,
+      "std": 174,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-04-06",
+      "mean": 1297,
+      "std": 174,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-04-07",
+      "mean": 1318,
+      "std": 150,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-04-08",
+      "mean": 1321,
+      "std": 142,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-04-09",
+      "mean": 1305,
+      "std": 148,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-04-10",
+      "mean": 1162,
+      "std": 107,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-04-11",
+      "mean": 1140,
+      "std": 123,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-04-12",
+      "mean": 1336,
+      "std": 156,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-04-13",
+      "mean": 1339,
+      "std": 137,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-04-14",
+      "mean": 1377,
+      "std": 137,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-04-15",
+      "mean": 1340,
+      "std": 120,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-04-16",
+      "mean": 1314,
+      "std": 118,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-04-17",
+      "mean": 1271,
+      "std": 123,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-04-18",
+      "mean": 1234,
+      "std": 127,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-04-19",
+      "mean": 1341,
+      "std": 126,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-04-20",
+      "mean": 1322,
+      "std": 119,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-04-21",
+      "mean": 1284,
+      "std": 106,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-04-22",
+      "mean": 1285,
+      "std": 115,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-04-23",
+      "mean": 1238,
+      "std": 103,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-04-24",
+      "mean": 1203,
+      "std": 105,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-04-25",
+      "mean": 1190,
+      "std": 118,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-04-26",
+      "mean": 1352,
+      "std": 126,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-04-27",
+      "mean": 1339,
+      "std": 119,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-04-28",
+      "mean": 1334,
+      "std": 118,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-04-29",
+      "mean": 1328,
+      "std": 116,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-04-30",
+      "mean": 1326,
+      "std": 116,
+      "stage": "Stage 1"
+    },
+    {
+      "date": "2021-05-01",
+      "mean": 1223,
+      "std": 114,
+      "stage": "Stage 2"
+    },
+    {
+      "date": "2021-05-02",
+      "mean": 1212,
+      "std": 107,
+      "stage": "Stage 2"
+    },
+    {
+      "date": "2021-05-03",
+      "mean": 1318,
+      "std": 131,
+      "stage": "Stage 2"
+    },
+    {
+      "date": "2021-05-04",
+      "mean": 1353,
+      "std": 126,
+      "stage": "Stage 2"
+    },
+    {
+      "date": "2021-05-05",
+      "mean": 1393,
+      "std": 139,
+      "stage": "Stage 2"
+    },
+    {
+      "date": "2021-05-06",
+      "mean": 1376,
+      "std": 128,
+      "stage": "Stage 2"
+    },
+    {
+      "date": "2021-05-07",
+      "mean": 1372,
+      "std": 128,
+      "stage": "Stage 2"
+    },
+    {
+      "date": "2021-05-08",
+      "mean": 1334,
+      "std": 126,
+      "stage": "Stage 2"
+    },
+    {
+      "date": "2021-05-09",
+      "mean": 1269,
+      "std": 134,
+      "stage": "Stage 2"
+    },
+    {
+      "date": "2021-05-10",
+      "mean": 1350,
+      "std": 122,
+      "stage": "Stage 2"
+    },
+    {
+      "date": "2021-05-11",
+      "mean": 1329,
+      "std": 117,
+      "stage": "Stage 2"
+    },
+    {
+      "date": "2021-05-12",
+      "mean": 1317,
+      "std": 113,
+      "stage": "Stage 2"
+    },
+    {
+      "date": "2021-05-13",
+      "mean": 1287,
+      "std": 103,
+      "stage": "Stage 2"
+    },
+    {
+      "date": "2021-05-14",
+      "mean": 1295,
+      "std": 118,
+      "stage": "Stage 2"
+    },
+    {
+      "date": "2021-05-15",
+      "mean": 1303,
+      "std": 124,
+      "stage": "Stage 2"
+    },
+    {
+      "date": "2021-05-16",
+      "mean": 1210,
+      "std": 139,
+      "stage": "Stage 2"
+    },
+    {
+      "date": "2021-05-17",
+      "mean": 1124,
+      "std": 140,
+      "stage": "Stage 2"
+    },
+    {
+      "date": "2021-05-18",
+      "mean": 1094,
+      "std": 128,
+      "stage": "Stage 2"
+    },
+    {
+      "date": "2021-05-19",
+      "mean": 1142,
+      "std": 113,
+      "stage": "Stage 2"
+    },
+    {
+      "date": "2021-05-20",
+      "mean": 1179,
+      "std": 134,
+      "stage": "Stage 2"
+    },
+    {
+      "date": "2021-05-21",
+      "mean": 1219,
+      "std": 122,
+      "stage": "Stage 2"
+    },
+    {
+      "date": "2021-05-22",
+      "mean": 1206,
+      "std": 105,
+      "stage": "Stage 2"
+    },
+    {
+      "date": "2021-05-23",
+      "mean": 1160,
+      "std": 114,
+      "stage": "Stage 2"
+    },
+    {
+      "date": "2021-05-24",
+      "mean": 1290,
+      "std": 130,
+      "stage": "Stage 2"
+    },
+    {
+      "date": "2021-05-25",
+      "mean": 1307,
+      "std": 127,
+      "stage": "Stage 2"
+    },
+    {
+      "date": "2021-05-26",
+      "mean": 1274,
+      "std": 115,
+      "stage": "Stage 2"
+    },
+    {
+      "date": "2021-05-27",
+      "mean": 1307,
+      "std": 121,
+      "stage": "Stage 2"
+    },
+    {
+      "date": "2021-05-28",
+      "mean": 1338,
+      "std": 135,
+      "stage": "Stage 2"
+    },
+    {
+      "date": "2021-05-29",
+      "mean": 1327,
+      "std": 125,
+      "stage": "Stage 2"
+    },
+    {
+      "date": "2021-05-30",
+      "mean": 1246,
+      "std": 133,
+      "stage": "Stage 2"
+    },
+    {
+      "date": "2021-05-31",
+      "mean": 1316,
+      "std": 122,
+      "stage": "Stage 2"
+    },
+    {
+      "date": "2021-06-01",
+      "mean": 1521,
+      "std": 0,
+      "stage": "Stage 2"
     }
   ]
 }

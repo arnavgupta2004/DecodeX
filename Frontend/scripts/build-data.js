@@ -172,6 +172,56 @@ s1.forEach((r) => {
 
 const penaltyReduction = ((1 - s1TotalPenalty / naiveTotal) * 100).toFixed(1);
 
+// ─── Hourly load profile (Stage 1 — stable training baseline, 24 bars) ───────
+const hourBuckets = {};
+s1.forEach((r) => {
+  const h = parseInt(r.Hour ?? "0", 10);
+  if (!hourBuckets[h]) hourBuckets[h] = { sum: 0, count: 0 };
+  hourBuckets[h].sum += num(r.Actual_Load_kW);
+  hourBuckets[h].count += 1;
+});
+const hourlyProfile = Array.from({ length: 24 }, (_, h) => ({
+  hour: h,
+  label: `${String(h).padStart(2, "0")}:00`,
+  avgLoad: Math.round((hourBuckets[h]?.sum ?? 0) / (hourBuckets[h]?.count || 1)),
+  isPeak: h >= 18 && h <= 21 ? 1 : 0,
+}));
+
+// ─── Peak vs Off-Peak penalty breakdown per stage ─────────────────────────────
+const s1PeakPen = s1.filter((r) => num(r.Is_Peak) === 1).reduce((a, r) => a + num(r.Penalty_INR), 0);
+const s1OPPen   = s1.filter((r) => num(r.Is_Peak) !== 1).reduce((a, r) => a + num(r.Penalty_INR), 0);
+const s2PeakPen = s2.filter((r) => num(r.Is_Peak_Hour) === 1).reduce((a, r) => a + num(r.Penalty_Stage2_INR), 0);
+const s2OPPen   = s2.filter((r) => num(r.Is_Peak_Hour) !== 1).reduce((a, r) => a + num(r.Penalty_Stage2_INR), 0);
+const s3PeakPen = s3.filter((r) => num(r.Is_Peak_Hour) === 1).reduce((a, r) => a + num(r.Penalty_Stage3_INR), 0);
+const s3OPPen   = s3.filter((r) => num(r.Is_Peak_Hour) !== 1).reduce((a, r) => a + num(r.Penalty_Stage3_INR), 0);
+const peakBreakdown = [
+  { stage: "Stage 1", peak: Math.round(s1PeakPen), offPeak: Math.round(s1OPPen) },
+  { stage: "Stage 2", peak: Math.round(s2PeakPen), offPeak: Math.round(s2OPPen) },
+  { stage: "Stage 3", peak: Math.round(s3PeakPen), offPeak: Math.round(s3OPPen) },
+];
+
+// ─── Daily volatility — last 60 days Stage 1 + all Stage 2 (regime shift) ────
+const dailyLoads = {};
+s1.slice(-5760).forEach((r) => {            // 5760 = 60 days × 96 intervals
+  const dt = r.DateTime?.slice(0, 10) ?? "";
+  if (!dt) return;
+  if (!dailyLoads[dt]) dailyLoads[dt] = { loads: [], stage: "Stage 1" };
+  dailyLoads[dt].loads.push(num(r.Actual_Load_kW));
+});
+s2.forEach((r) => {
+  const dt = r.DateTime?.slice(0, 10) ?? "";
+  if (!dt) return;
+  if (!dailyLoads[dt]) dailyLoads[dt] = { loads: [], stage: "Stage 2" };
+  dailyLoads[dt].loads.push(num(r.Actual_Load_kW));
+});
+const volatilityData = Object.entries(dailyLoads)
+  .sort(([a], [b]) => a.localeCompare(b))
+  .map(([date, { loads, stage }]) => {
+    const mean = loads.reduce((a, v) => a + v, 0) / loads.length;
+    const std  = Math.sqrt(loads.reduce((a, v) => a + (v - mean) ** 2, 0) / loads.length);
+    return { date, mean: Math.round(mean), std: Math.round(std), stage };
+  });
+
 const output = {
   summary: {
     stage1: {
@@ -209,6 +259,9 @@ const output = {
     { stage: "Stage 2", penalty: Math.round(s2TotalPenalty), label: "Post-Regime Shift" },
     { stage: "Stage 3", penalty: Math.round(s3TotalPenalty), label: "Constrained" },
   ],
+  hourlyProfile,
+  peakBreakdown,
+  volatilityData,
 };
 
 const outDir = path.join(__dirname, "..", "public", "data");

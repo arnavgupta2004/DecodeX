@@ -109,7 +109,11 @@ def engineer_features(df: pd.DataFrame) -> pd.DataFrame:
     df['interval_of_day'] = df['HOUR'] * 4 + df['MINUTE'] // 15
     df['interval_sin'] = np.sin(2 * np.pi * df['interval_of_day'] / 96)
     df['interval_cos'] = np.cos(2 * np.pi * df['interval_of_day'] / 96)
-    
+
+    # ── PEAK_Flag: enforce guideline definition 6:00 PM – 10:00 PM (18:00–21:59) ──
+    # Source CSV may include hour 22 (10 PM) as peak — override to match guidelines
+    df['PEAK_Flag'] = ((df['HOUR'] >= 18) & (df['HOUR'] < 22)).astype(int)
+
     # Weather interaction features
     df['temp_x_peak']        = df['ACT_TEMP']        * df['PEAK_Flag']
     df['heat_index_x_peak']  = df['ACT_HEAT_INDEX']  * df['PEAK_Flag']

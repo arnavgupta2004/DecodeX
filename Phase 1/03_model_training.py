@@ -250,6 +250,10 @@ if __name__ == '__main__':
     df['DATETIME_PARSED'] = pd.to_datetime(df['DATETIME_PARSED'])
     df = df.sort_values('DATETIME_PARSED').reset_index(drop=True)
 
+    # ── Enforce guideline peak definition: 6PM–10PM = 18:00–21:59 ──
+    # Source CSV may include hour 22; override to match guidelines exactly
+    df['PEAK_Flag'] = ((df['HOUR'] >= 18) & (df['HOUR'] < 22)).astype(int)
+
     # ── Train / validation split (temporal, no shuffling) ──
     n = len(df)
     train_end = int(n * 0.80)

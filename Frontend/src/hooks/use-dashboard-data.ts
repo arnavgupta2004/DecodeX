@@ -37,6 +37,26 @@ export interface PenaltyByStage {
   label: string;
 }
 
+export interface HourlyProfilePoint {
+  hour: number;
+  label: string;
+  avgLoad: number;
+  isPeak: 0 | 1;
+}
+
+export interface PeakBreakdownPoint {
+  stage: string;
+  peak: number;
+  offPeak: number;
+}
+
+export interface VolatilityPoint {
+  date: string;
+  mean: number;
+  std: number;
+  stage: string;
+}
+
 export interface DashboardData {
   summary: DashboardSummary;
   chartData: {
@@ -45,6 +65,9 @@ export interface DashboardData {
     stage3: ChartDataPoint[];
   };
   penaltyByStage: PenaltyByStage[];
+  hourlyProfile: HourlyProfilePoint[];
+  peakBreakdown: PeakBreakdownPoint[];
+  volatilityData: VolatilityPoint[];
 }
 
 async function fetchDashboard(): Promise<DashboardData> {

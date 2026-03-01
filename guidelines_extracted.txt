@@ -1,0 +1,608 @@
+
+============================================================
+Case 02 - Stage 3 Guidelines.pdf
+============================================================
+DECODE X | 2026 
+02 ��� Case GRIDSHIELD  
+          P a g e  1 | 7 
+NLD Synapse 2026 | N. L. Dalmia Institute of Management Studies & Research. 
+ 
+Stage 1 ��� Baseline Diagnostic & Cost-Aware Forecasting  
+������������������������������������  28 February 2026 | 11:00 AM  
+1. Executive Context   
+Lumina Energy operates a suburban Mumbai distribution zone.  
+Under Maharashtra���s Availability Based Tari�� (ABT) regulations, Power Distribution Companies 
+must submit a 2-day ahead load forecast at 15-minute resolution to the State Load Dispatch 
+Centre (SLDC).  
+Deviation from submitted schedules attracts ���nancial penalties.  
+Under ABT:  
+��� Under-forecasting (Actual > Forecast) ��� costly grid drawal  
+��� Over-forecasting (Forecast > Actual) ��� ine��iciency + deviation charge  
+��� Penalties are asymmetric  
+��� Peak-hour deviations carry higher ���nancial and operational risk  
+Forecast accuracy is no longer a statistical objective.  
+It is a ���nancial exposure minimization problem under regulatory constraint.  
+You are engaged as the Forecast Risk Advisory Team.  
+ 
+2. Regulatory Simulation Framework   
+For Stage 1 simulation, assume:  
+Base Deviation Penalty Structure  
+Condition Penalty 
+Actual > Forecast  ���4 per kWh deviation 
+Forecast > Actual  ���2 per kWh deviation 
+  
+Peak Hour De���nition  
+Peak Hours: 6:00 PM ��� 10:00 PM (local time)  
+Peak deviations carry elevated system risk but follow base penalty rates in Stage 1.  
+  
+  
+ 
+ 
+DECODE X | 2026 
+02 ��� Case GRIDSHIELD  
+          P a g e  2 | 7 
+NLD Synapse 2026 | N. L. Dalmia Institute of Management Studies & Research. 
+ 
+3. Data Provided   
+A. Electric Load Data  
+��� DateTime (15-minute intervals)  
+��� Load (kW)  
+��� Period: 1 April 2013 ��� 30 April 2021 (Training)  
+B. Weather Variables (15-minute aligned)  
+��� Temperature  
+��� Heat Index  
+��� Humidity  
+��� Rainfall  
+��� Cool Factor  
+C. Event Data  
+��� Date  
+��� Event Name  
+��� Holiday Indicator  
+��� Remarks  
+Historical data includes structural disruptions.  
+Full stationarity should not be assumed.  
+External augmentation is permitted but must be documented.  
+  
+4. Advisory Mandate   
+You must:  
+1. Develop a 2-day ahead load forecasting model (15-min resolution).  
+2. Incorporate relevant exogenous drivers.  
+3. Quantify forecast uncertainty (intervals or quantiles).  
+4. Backtest historical deviation penalty exposure.  
+5. Propose a cost-minimizing forecast strategy.  
+Forecasting must minimize expected ���nancial penalty, not merely RMSE.  
+  
+DECODE X | 2026 
+02 ��� Case GRIDSHIELD  
+          P a g e  3 | 7 
+NLD Synapse 2026 | N. L. Dalmia Institute of Management Studies & Research. 
+ 
+ 
+ 5. Mandatory Outputs   
+A. Forecast Model Documentation  
+��� Modeling approach  
+��� Feature engineering logic  
+��� Handling of seasonality and structural breaks  
+��� Time-aware validation methodology  
+��� Leakage controls  
+B. Historical Backtest Metrics  
+Report on Training period:  
+��� Total deviation penalty (���)  
+��� Peak-hour penalty (���)  
+��� O��-peak penalty (���)  
+��� Forecast bias (%)  
+��� 95th percentile absolute deviation (kW)  
+C. Risk Strategy Proposal  
+��� Bias positioning (if any)  
+��� Quantile or bu��ering approach  
+��� Peak-hour risk mitigation strategy  
+��� Expected penalty reduction vs naive baseline  
+Only genuine data inconsistencies may be raised.  
+  
+DECODE X | 2026 
+02 ��� Case GRIDSHIELD  
+          P a g e  4 | 7 
+NLD Synapse 2026 | N. L. Dalmia Institute of Management Studies & Research. 
+ 
+Stage 2 ��� Regime Shift & Penalty Escalation  
+������������������������������������  28 February 2026 | 7:00 PM  
+1. Data Release  
+Dataset now available:  Test Set (Out-of-Time )  
+This dataset represents out-of-time load behaviour characterized by:  
+��� Elevated volatility  
+��� Increased intra-day ���uctuation  
+��� Altered weekday/weekend elasticity  
+��� Ampli���ed peak-hour variability  
+This period was not included in training.  
+2. Regulatory Update ��� Peak Sensitivity Escalation  
+E��ective immediately:  
+Revised Peak-Hour Penalty (6:00 PM ��� 10:00 PM)  
+Condition Penalty 
+Actual > Forecast ���6 per kWh deviation 
+Forecast > Actual ���2 per kWh deviation 
+O��-peak penalties remain unchanged.  
+Underestimation during peak hours now carries materially higher ���nancial exposure.  
+3. Revised Analytical Requirements  
+You must:  
+1. Generate forecasts for Test dataset.  
+2. Compute deviation penalties under revised structure.  
+3. Quantify:  
+��� Total penalty (���)  
+��� Peak-hour penalty (���)  
+��� O��-peak penalty (���)  
+��� Forecast bias (%)  
+��� 95th percentile absolute deviation (kW)  
+4. Compare:  
+��� Stage 1 historical penalty exposure  
+��� Stage 2 test penalty exposure  
+5. Recalibrate forecasting and bu��ering strategy if necessary.  
+ 
+ 
+ 
+DECODE X | 2026 
+02 ��� Case GRIDSHIELD  
+          P a g e  5 | 7 
+NLD Synapse 2026 | N. L. Dalmia Institute of Management Studies & Research. 
+ 
+4. Modeling Discipline  
+You must:  
+��� Avoid temporal leakage.  
+��� Ensure weather variables re���ect available forecast horizon.  
+��� Document structural adjustments.  
+��� Justify any bias or quantile modi���cations introduced post-update.  
+No regulatory clari���cations will be provided. 
+  
+  
+DECODE X | 2026 
+02 ��� Case GRIDSHIELD  
+          P a g e  6 | 7 
+NLD Synapse 2026 | N. L. Dalmia Institute of Management Studies & Research. 
+ 
+Stage 3 ��� Con���dential Board Directive  
+������������������������������������  01 March 2026 | 5:00 AM  
+Following review of Stage 2 results and grid sensitivity concerns, the Board issues the following 
+binding constraints.  
+All constraints must be satis���ed.  
+1. Total Financial Exposure Cap  
+Total deviation penalty (under revised peak-hour rates) must not exceed: ��� X  
+(Threshold will be de���ned as Stage 2 baseline ��� required improvement margin.)  
+You must report:  
+��� Total penalty  
+��� Peak-hour penalty  
+��� O��-peak penalty  
+2. Peak-Hour Reliability Constraint  
+During Peak Hours (6:00 PM ��� 10:00 PM):  
+Underestimation exceeding 5% of actual load  
+is permitted for a maximum of 3 intervals.  
+Exceeding this threshold materially impacts evaluation.  
+3. Forecast Bias Bound  
+Overall forecast bias must remain within:  
+[  -2%  <= {Bias}  <=  +3% ]  
+Upward bias beyond +3% = over-procurement risk  
+Downward bias below ���2% = regulatory risk  
+4. Bu��ering Constraint  
+Average forecast uplift (relative to unbiased model) must not exceed:  
+3% across entire test window  
+  
+DECODE X | 2026 
+02 ��� Case GRIDSHIELD  
+          P a g e  7 | 7 
+NLD Synapse 2026 | N. L. Dalmia Institute of Management Studies & Research. 
+ 
+5. Risk Transparency Requirement  
+You must report:  
+��� 95th percentile absolute deviation  
+��� Worst 5 deviation intervals  
+��� Financial impact of peak-hour volatility  
+��� Justi���cation of regime-adjusted modeling strategy  
+ 
+6. Executive Expectation  
+The Board expects:  
+��� Financial prudence  
+��� Regulatory compliance  
+��� Grid stability  
+��� Transparent trade-o�� articulation  
+Failure to satisfy any constraint materially impacts evaluation.  
+No clari���cations will be provided.  
+ 
+
+============================================================
+Finale Round Guidelines .pdf
+============================================================
+DECODE X | 2026 
+          P a g e  1 | 7 
+NLD Synapse 2026 | N. L. Dalmia Institute of Management Studies & Research. 
+ 
+Finale Round Guidelines 
+1. Competition Overview 
+The Decode X ��� 2026 Finale Round is a multi-stage, data-driven analytical challenge designed 
+to test: 
+��� Analytical Rigor 
+��� Optimization Under Constraints 
+��� Strategic Decision-Making 
+��� Systems Thinking 
+��� Executive-Level Communication 
+ 
+The finale simulates a real-world advisory environment where teams must diagnose, adapt, 
+and recommend under evolving conditions. 
+This is not a static analytics exercise. 
+It is a structural reasoning simulation. 
+2. Structure of the Finale 
+��� The finale consists of 5 distinct case areas. 
+��� Teams will be randomly assigned a Case Number. 
+��� Each case operates independently. 
+��� The Top 2 teams from each case qualify for the Jury Round. 
+��� A total of 10 finalist teams will be selected. 
+��� Only the Top team from each case will present before the Jury Panel. 
+��� The Top 3 teams overall, across all cases, will be declared winners. 
+ 
+3. Competition Timeline 
+Start: 
+             28 February 2026 ��� 11:00 AM 
+Final Submission Deadline: 
+             01 March 2026 ��� 9:00 AM 
+Total Duration: 
+22 continuous hours 
+All work must be completed strictly within this window. 
+Late submissions will not be evaluated. 
+  
+DECODE X | 2026 
+          P a g e  2 | 7 
+NLD Synapse 2026 | N. L. Dalmia Institute of Management Studies & Research. 
+ 
+ 
+4. Stage Structure (Evolving Case Design) 
+The finale consists of three structured stages, with an interim structural checkpoint. 
+All case materials will be shared via OneDrive link (case-specific). 
+  Stage 1 ��� Baseline Case Release 
+             28 February | 11:00 AM 
+Teams will receive: 
+��� Assigned Case Number 
+��� Business Context Brief 
+��� Historical Dataset 
+��� Submission Instructions 
+Teams are expected to: 
+��� Frame the business problem 
+��� Diagnose performance 
+��� Identify key drivers 
+��� Build analytical models 
+��� Propose an initial strategy 
+ 
+  Stage 2 ��� Regime Shift 
+             28 February | 7:00 PM 
+Each case will receive a case-specific structural shock, which may include: 
+��� Policy change 
+��� Cost structure revision 
+��� Demand shift 
+��� Regulatory intervention 
+��� Capital or operational constraint 
+Updated data or revised parameters will be shared. 
+Teams must: 
+��� Reassess earlier conclusions 
+��� Recalibrate models 
+��� Re-optimize strategy 
+��� Quantify impact 
+No business interpretation clarifications will be provided at this stage. 
+  
+DECODE X | 2026 
+          P a g e  3 | 7 
+NLD Synapse 2026 | N. L. Dalmia Institute of Management Studies & Research. 
+ 
+  Stage 2 Interim Submission (Mandatory) 
+             28 February | 11:00 PM 
+Following the Stage 2 Regime Shift, all teams must submit an interim structural 
+recalibration brief. 
+This submission evaluates: 
+��� Structural shock diagnosis 
+��� Model recalibration discipline 
+��� Quantified impact assessment 
+��� Trade-off recognition 
+��� Preparedness for Stage 3 optimization 
+This is not a final solution submission. 
+It is a structured reasoning checkpoint. 
+Interim Submission Requirements 
+All interim submissions must be emailed before: 
+      11:00 PM | 28 February 2026 
+       decodex.cases@nldalmia.edu.in 
+     Subject Line Format (Strictly Follow): 
+DECODE-X Stage 2 | Team Name | Case Number 
+Example: 
+DECODE-X Stage 2 | Alpha Analytics | Case 03 
+Incorrect subject formatting may lead to administrative rejection. 
+Mandatory Attachment (Stage 2) 
+     Stage 2 Structural Recalibration Brief 
+(Maximum 5 Slides | PDF Format Only) 
+Must include: 
+   Shock Diagnosis 
+   Model Recalibration Summary 
+   Impact Quantification (Before vs After) 
+   Trade-Off Identification 
+   Stage 3 Optimization Direction (no final answers) 
+Final constraint solutions must NOT be included. 
+Stage 3 directives will be released after this submission. 
+  
+DECODE X | 2026 
+          P a g e  4 | 7 
+NLD Synapse 2026 | N. L. Dalmia Institute of Management Studies & Research. 
+ 
+ 
+  Stage 3 ��� Final Board Directive 
+             01 March | 1:00 AM 
+Each case will receive a Confidential Board-Level Directive introducing: 
+��� A binding constraint, or 
+��� A revised performance objective, or 
+��� A financial/operational threshold requirement 
+This directive is case-specific and must be incorporated into the final recommendation. 
+No clarifications will be provided. 
+5. Clarification Policy 
+Clarifications will be accepted only between: 
+             28 February | 11:00 AM ��� 01:00 PM 
+After 01:00 PM: 
+��� No business interpretation clarifications will be entertained. 
+��� Only genuine data inconsistencies or technical errors may be raised. 
+��� All assumptions and interpretations remain the responsibility of the team. 
+  
+DECODE X | 2026 
+          P a g e  5 | 7 
+NLD Synapse 2026 | N. L. Dalmia Institute of Management Studies & Research. 
+ 
+6. Final Deliverables 
+All final submissions must be emailed before: 
+      9:00 AM | 01 March 2026 
+       decodex.cases@nldalmia.edu.in 
+     Subject Line Format (Strictly Follow): 
+DECODE-X Finale | Team Name | Case Number 
+Example: 
+DECODE-X Finale | Alpha Analytics | Case 03 
+Incorrect subject formatting may lead to administrative rejection. 
+Mandatory Attachments 
+   Executive Board Presentation (Max 15 Slides) 
+Must include: 
+��� Problem framing 
+��� Baseline diagnosis 
+��� Post-shock analysis 
+��� Optimization logic 
+��� Final recommendation 
+��� Risk & sensitivity 
+   Technical Appendix (Max 10 Pages) 
+Must include: 
+��� Model specifications 
+��� Assumptions 
+��� Methodology 
+��� Validation approach 
+��� Sensitivity analysis 
+   One-Page Decision Memo (Mandatory) 
+Must clearly state: 
+��� What fundamentally changed after the regime shift? 
+��� What trade-offs were accepted? 
+��� What final decision is recommended? 
+��� What risks remain? 
+  
+DECODE X | 2026 
+          P a g e  6 | 7 
+NLD Synapse 2026 | N. L. Dalmia Institute of Management Studies & Research. 
+ 
+   Stage 2 Interim Submission 
+The Stage 2 Structural Recalibration Brief (submitted at 11:00 PM) forms part of the 
+evaluation record. 
+The jury may evaluate: 
+��� Logical evolution from Stage 2 to Stage 3 
+��� Structural consistency 
+��� Adaptation discipline 
+��� Transparency of trade-offs 
+Teams must defend continuity of reasoning during Jury Round. 
+   Supporting Model/Code Files (Optional but Encouraged) 
+Black-box outputs without explanation will be penalized. 
+ 
+7. Evaluation Criteria 
+Criteria Weight 
+Analytical Depth 25% 
+Re-Optimization Under Shock 20% 
+Decision Logic & Trade-Off Clarity 25% 
+Systems Thinking 15% 
+Business Communication 15% 
+ 
+8. AI & Tool Usage Policy 
+This is an open-book competition. 
+��� Python, R, SQL, Excel, AI tools permitted. 
+��� Major tools used must be declared. 
+��� Black-box outputs without explanation will be penalized. 
+��� Jury members may question modeling assumptions and logic. 
+��� Teams must independently defend their analysis. 
+  
+DECODE X | 2026 
+          P a g e  7 | 7 
+NLD Synapse 2026 | N. L. Dalmia Institute of Management Studies & Research. 
+ 
+9. Academic Integrity 
+��� Plagiarism and similarity checks may be conducted. 
+��� Excessive similarity may result in disqualification. 
+��� All submitted work must be original. 
+��� No revisions will be accepted after submission. 
+10. Jury Round 
+The Top team from each case will present before the Jury Panel. 
+Presentation Format: 
+��� 20 minutes presentation 
+��� 10 minutes Q&A 
+The Top 3 teams overall will be declared winners. 
+ 
+Closing Note 
+Decode X ��� 2026 is designed to test: 
+Diagnosis ��� Adaptation ��� Constrained Optimization 
+Stage 1 tests analytical foundation. 
+Stage 2 tests recalibration discipline. 
+Stage 3 tests structural judgment under constraint. 
+Consistency of reasoning matters as much as correctness. 
+
+============================================================
+Initial Guidelines.docx.pdf
+============================================================
+DecodeX  ���  Final  Round  Guidelines  &  Preparation  
+Kit
+ 24-Hour  On-Campus  Business  Use  Case  Challenge  
+28th
+ 
+Feb
+ 
+���
+ 
+1st
+ 
+March
+ 
+Venue:
+ 
+N.
+ 
+L.
+ 
+Dalmia
+ 
+Institute
+ 
+of
+ 
+Management
+ 
+Studies
+ 
+&
+ 
+Research,
+ 
+Mumbai
+ 
+ 
+Round  Overview  
+The  Final  Round  of  DecodeX  is  designed  to  test  analytical  depth,  strategic  thinking,  
+teamwork,
+ 
+and
+ 
+execution
+ 
+under
+ 
+pressure.
+ 
+���  Mode:  On-Campus  (24-Hour  Challenge)  
+���  Case  Allocation:  Business  use  case  will  be  provided  on  the  event  day  
+���  Domains  Covered:  Finance,  Marketing,  Healthcare,  Technology,  Operations  /  
+Strategy
+ 
+���  Participants:  Teams  qualified  from  Round  2  
+ 
+Competition  Flow  Structure  
+Step  1:  Case  Release  (10:00  AM  ���  Day  1)  
+���  The  case  will  be  provided  at  the  start  of  the  challenge.  
+���  All  required  data/material  will  be  shared  at  that  time.  
+Step  2:  24-Hour  Work  Window  
+���  Teams  will  analyze  the  case,  build  models  (If  necessary),  and  prepare  final  
+deliverables.
+ 
+Step  3:  Submission  (10:00  AM  ���  Day  2)  
+Teams  must  submit:  
+���  MS  Word  Report  (Detailed  Analysis)  
+���  Presentation  Deck  (Final  Solution  Summary)  
+���  Supporting  Analytical  Files  (Excel  /  Power  BI  /  Python  /  Financial  Models  /  
+Dashboards
+ 
+etc.)
+ 
+Late  submissions  will  not  be  evaluated  under  any  circumstances.  
+ 
+Evaluation  &  Shortlisting  Structure  
+Phase  1:  Initial  Evaluation  
+Each  team  will  be  evaluated  out  of  100  marks  based  on:  
+���  Analytical  depth  
+���  Business  understanding  
+���  Practical  feasibility  
+���  Financial  logic  
+���  Clarity  of  communication  
+���  Innovation  
+Phase  2:  Shortlisting  
+Top  10  teams  will  be  shortlisted  after  submission  review  and  will  be  eligible  for  placement/  
+Internship
+ 
+Opportunities.
+ 
+Phase  3:  Final  Presentation  Round  
+Top  5  teams  will  present  their  solutions  before  the  jury.  
+Presentations
+ 
+will
+ 
+be
+ 
+followed
+ 
+by
+ 
+a
+ 
+Q&A
+ 
+round.
+ 
+Judges  will  assess:  
+���  Clarity  of  thought  
+���  Defense  of  assumptions  
+���  Practical  viability  
+���  Strategic  maturity  
+���  Confidence  and  articulation  
+Final  Outcome  
+Among  the  Top  5  presenting  teams:  
+���  Top  3  teams  will  be  declared  winners.  
+���  Final  rankings  will  be  based  on  combined  submission  and  presentation  performance.  
+ 
+Rules  &  Compliance  
+���  Laptops  are  mandatory.  
+���  No  external  assistance  is  allowed.  
+���  No  internet-based  collaboration  with  outsiders.  
+���  All  work  must  be  created  during  the  24-hour  window.  
+���  Any  plagiarism  or  use  of  pre-built  solutions  will  lead  to  immediate  disqualification.  
+���  Late  submissions  will  not  be  accepted.  
+Campus  Stay  Policy  
+���  No  participant  will  be  allowed  to  leave  the  campus  after  registration.  
+���  All  necessary  arrangements  will  be  made  on  campus.  
+���  Teams  must  remain  available  on  campus  throughout  the  challenge  period.  
+ 
+Food  &  Accommodation  Arrangements  
+To  ensure  a  smooth  experience:  
+���  Breakfast  and  Lunch  for  both  days  will  be  provided  on  campus.  
+���  In  the  evening,  multiple  food  stalls  will  be  available  on  campus.  Participants  may  
+purchase
+ 
+food
+ 
+directly
+ 
+from
+ 
+the
+ 
+stall
+ 
+vendors.
+ 
+���  Sleeping  arrangements  will  be  made  on  campus  for  all  participants.  
+Participants  are  advised  to  plan  accordingly  and  carry  essentials  required  for  an  overnight  
+stay.
+ 
+ 
+What  To  Bring  
+Mandatory  Items:  
+���  Personal  Laptop  
+���  Laptop  Charger  
+���  College  ID  Card  
+���  Valid  Government  ID  
+Recommended:  
+���  Mouse  
+���  Light  blanket  or  shawl  
+���  Basic  toiletries  
+���  Power  bank  
+���  Light  jacket  (AC  rooms  may  be  cold)  
+���  Water  bottle  
+���  Basic  medicines  (if  required)  
+ 
+ 

@@ -53,6 +53,9 @@ def generate_forecast_output(input_csv: str, output_csv: str) -> pd.DataFrame:
                    'Actual_Load_kW', 'Forecast_Mean_kW',
                    'Forecast_Q67_kW', 'Forecast_Naive_kW']
 
+    # ── Enforce guideline peak definition: 6PM–10PM = 18:00–21:59 (NOT including 22:00) ──
+    out['Is_Peak'] = ((out['Hour'] >= 18) & (out['Hour'] < 22)).astype(int)
+
     # Hybrid strategy
     out['Forecast_Hybrid_kW'] = np.where(
         out['Is_Peak'] == 1,
@@ -79,40 +82,53 @@ def generate_forecast_output(input_csv: str, output_csv: str) -> pd.DataFrame:
 
 
 def print_forecast_summary(out: pd.DataFrame) -> None:
-    """Print a clean summary of forecast performance."""
+    """Print a clean summary of forecast performance (all 5 mandatory metrics)."""
     actual   = out['Actual_Load_kW'].values
     forecast = out['Forecast_Hybrid_kW'].values
+    naive_fc = out['Forecast_Naive_kW'].values
     penalty  = out['Penalty_INR'].values
     is_peak  = out['Is_Peak'].values == 1
 
-    rmse = np.sqrt(np.mean((actual - forecast) ** 2))
-    mae  = np.mean(np.abs(actual - forecast))
-    mape = np.mean(np.abs((actual - forecast) / actual)) * 100
-    bias = (forecast - actual).mean()
+    rmse     = np.sqrt(np.mean((actual - forecast) ** 2))
+    mae      = np.mean(np.abs(actual - forecast))
+    mape     = np.mean(np.abs((actual - forecast) / actual)) * 100
+    bias     = (forecast - actual).mean()
+    bias_pct = bias / actual.mean() * 100
+    p95_dev  = np.percentile(np.abs(actual - forecast), 95)
 
-    print("\n" + "="*55)
-    print("GRIDSHIELD FORECAST OUTPUT SUMMARY")
-    print("="*55)
-    print(f"Forecast period   : {out['DateTime'].min()} → {out['DateTime'].max()}")
-    print(f"Total intervals   : {len(out):,}")
-    print(f"Peak intervals    : {is_peak.sum():,} ({is_peak.mean()*100:.1f}%)")
+    # Naive baseline penalty (Rs.4 under / Rs.2 over, flat)
+    naive_kwh = np.abs(actual - naive_fc) * 0.25
+    naive_pen = np.where(actual > naive_fc, naive_kwh * 4, naive_kwh * 2).sum()
+    pen_reduction_pct = (1 - penalty.sum() / naive_pen) * 100
+
+    print("\n" + "="*60)
+    print("GRIDSHIELD — STAGE 1 FORECAST OUTPUT SUMMARY")
+    print("="*60)
+    print(f"Forecast period      : {out['DateTime'].min()} → {out['DateTime'].max()}")
+    print(f"Total intervals      : {len(out):,}")
+    print(f"Peak intervals       : {is_peak.sum():,} ({is_peak.mean()*100:.1f}%)")
     print()
-    print("── Accuracy Metrics (Hybrid Strategy) ──")
-    print(f"RMSE              : {rmse:.2f} kW")
-    print(f"MAE               : {mae:.2f} kW")
-    print(f"MAPE              : {mape:.3f}%")
-    print(f"Forecast Bias     : {bias:+.3f} kW")
+    print("── Mandatory Metrics (Hybrid Strategy) ──────────────────")
+    print(f"Total ABT Penalty    : Rs. {penalty.sum():>12,.0f}")
+    print(f"Peak-Hour Penalty    : Rs. {penalty[is_peak].sum():>12,.0f}")
+    print(f"Off-Peak Penalty     : Rs. {penalty[~is_peak].sum():>12,.0f}")
+    print(f"Forecast Bias        : {bias:+.3f} kW  ({bias_pct:+.4f}%)")
+    print(f"95th Pct Abs Dev     : {p95_dev:.2f} kW")
     print()
-    print("── ABT Penalty (Hybrid Strategy) ──")
-    print(f"Total Penalty     : Rs. {penalty.sum():,.0f}")
-    print(f"Peak Penalty      : Rs. {penalty[is_peak].sum():,.0f}")
-    print(f"Off-Peak Penalty  : Rs. {penalty[~is_peak].sum():,.0f}")
+    print("── Penalty Reduction vs Naive Baseline ──────────────────")
+    print(f"Naive Baseline Total : Rs. {naive_pen:>12,.0f}")
+    print(f"Hybrid Reduction     : {pen_reduction_pct:.1f}%  (Rs. {naive_pen - penalty.sum():,.0f} saved)")
     print()
-    print("── Forecast Direction Split ──")
+    print("── Accuracy Metrics ──────────────────────────────────────")
+    print(f"RMSE                 : {rmse:.2f} kW")
+    print(f"MAE                  : {mae:.2f} kW")
+    print(f"MAPE                 : {mape:.3f}%")
+    print()
+    print("── Forecast Direction Split ──────────────────────────────")
     direction = out['Forecast_Direction'].value_counts()
     for d, c in direction.items():
         print(f"  {d:<20}: {c:,} ({c/len(out)*100:.1f}%)")
-    print("="*55)
+    print("="*60)
 
 
 if __name__ == '__main__':

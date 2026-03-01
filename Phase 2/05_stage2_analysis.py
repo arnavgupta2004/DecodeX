@@ -342,24 +342,40 @@ def generate_stage2_output(test: pd.DataFrame, actual: np.ndarray,
     Hybrid strategy: Q75 during peak hours, Q67 during off-peak.
     """
     out = test[['DATETIME','HOUR','PEAK_Flag','LOAD']].copy()
-    out.columns = ['DateTime','Hour','Is_Peak','Actual_Load_kW']
+    out.columns = ['DateTime','Hour','Is_Peak_Hour','Actual_Load_kW']   # Is_Peak_Hour expected by Stage 3
 
-    for model_name, pred in models_preds.items():
-        out[f'Forecast_{model_name}_kW'] = pred
+    # Standardised column names for Stage 3 compatibility
+    # Resolves keys by partial match so caller can use descriptive labels
+    def _find(d, *tokens):
+        """Return first pred array whose key contains all tokens (case-insensitive)."""
+        for k, v in d.items():
+            kl = k.lower()
+            if all(t.lower() in kl for t in tokens):
+                return v
+        return None
 
-    # Stage 2 Hybrid
+    out['Forecast_Mean_kW']   = _find(models_preds, 'mean') if _find(models_preds, 'mean') is not None \
+                                else list(models_preds.values())[0]
+    out['Forecast_Q67_kW']    = _find(models_preds, 'q67')  if _find(models_preds, 'q67')  is not None \
+                                else list(models_preds.values())[0]
+    out['Forecast_Q75_kW']    = _find(models_preds, 'q75')  if _find(models_preds, 'q75')  is not None \
+                                else list(models_preds.values())[0]
+    out['Forecast_Naive_kW']  = _find(models_preds, 'naive') if _find(models_preds, 'naive') is not None \
+                                else out['Forecast_Mean_kW'].values
+
+    # Stage 2 Hybrid: Q75 peak / Q67 off-peak
     out['Forecast_Hybrid_kW'] = np.where(
         is_peak,
-        models_preds.get('Q75 (Peak Optimal)', models_preds['q75']),
-        models_preds.get('Q67 (Off-Peak)', models_preds['q67'])
+        out['Forecast_Q75_kW'].values,
+        out['Forecast_Q67_kW'].values
     )
     out['Forecast_Strategy'] = np.where(is_peak, 'Q75 (Peak-Stage2)', 'Q67 (Off-Peak)')
 
-    # Compute deviation and penalty
+    # Compute deviation and penalty — column named Penalty_Stage2_INR for Stage 3 compatibility
     out['Deviation_kW'] = out['Actual_Load_kW'] - out['Forecast_Hybrid_kW']
     kwh = np.abs(out['Deviation_kW']) * 0.25
     under_rate = np.where(is_peak, PEAK_UNDER_RATE, OFFPEAK_UNDER_RATE)
-    out['Penalty_INR'] = np.where(
+    out['Penalty_Stage2_INR'] = np.where(
         out['Deviation_kW'] > 0, kwh * under_rate, kwh * 2
     )
     out['Forecast_Direction'] = np.where(
@@ -369,7 +385,7 @@ def generate_stage2_output(test: pd.DataFrame, actual: np.ndarray,
     out.to_csv(output_path, index=False)
     print(f"\nStage 2 forecast saved to: {output_path}")
     print(f"  Rows: {len(out):,}")
-    print(f"  Total Hybrid Penalty: Rs. {out['Penalty_INR'].sum():,.0f}")
+    print(f"  Total Hybrid Penalty: Rs. {out['Penalty_Stage2_INR'].sum():,.0f}")
     print(f"  MAPE: {(np.abs(out['Deviation_kW'])/out['Actual_Load_kW']).mean()*100:.3f}%")
 
 
