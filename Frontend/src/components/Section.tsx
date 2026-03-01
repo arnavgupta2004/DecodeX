@@ -16,7 +16,7 @@ export const Section = ({
   subtitle?: string;
   children: ReactNode;
 }) => (
-  <section id={id} className="py-24 md:py-32 relative">
+  <section id={id} className="py-20 md:py-28 relative scroll-mt-20">
     <div className="container max-w-7xl mx-auto px-8">
       <motion.div
         initial={{ opacity: 0, y: 24 }}

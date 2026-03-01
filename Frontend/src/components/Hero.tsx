@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import heroBg from "@/assets/hero-bg.jpg";
 
 export const Hero = () => (
@@ -20,18 +21,31 @@ export const Hero = () => (
             NLD Synapse 2026
           </span>
         </div>
-        <nav className="hidden md:flex items-center gap-8">
-          {["Overview", "Baseline", "Recalibration", "Optimization", "Verdict"].map(
-            (item, i) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="font-sans text-[13px] text-foreground/50 hover:text-gold transition-colors tracking-wide"
-              >
-                {item}
-              </a>
-            )
-          )}
+        <nav className="hidden md:flex items-center gap-6">
+          {[
+            { label: "Overview", href: "#overview" },
+            { label: "Baseline", href: "#baseline" },
+            { label: "Recalibration", href: "#recalibration" },
+            { label: "Optimization", href: "#optimization" },
+            { label: "Verdict", href: "#verdict" },
+          ].map(({ label, href }) => (
+            <a
+              key={label}
+              href={href}
+              className="font-sans text-[13px] text-foreground/50 hover:text-gold transition-colors tracking-wide"
+            >
+              {label}
+            </a>
+          ))}
+          <Link
+            to="/dashboard"
+            className="font-sans text-[13px] font-medium text-gold hover:text-gold/80 transition-colors tracking-wide flex items-center gap-2"
+          >
+            <span>Dashboard</span>
+            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+            </svg>
+          </Link>
         </nav>
       </div>
       <div className="section-divider" />
@@ -57,9 +71,21 @@ export const Hero = () => (
           <span className="gold-text italic">X</span>
         </h1>
 
-        <p className="font-sans text-lg md:text-xl text-foreground/40 max-w-xl mb-14 leading-relaxed font-light">
+        <p className="font-sans text-lg md:text-xl text-foreground/40 max-w-xl mb-10 leading-relaxed font-light">
           Diagnosis → Adaptation → Constrained Optimization
         </p>
+
+        <div className="flex flex-wrap items-center gap-6 mb-8">
+          <Link
+            to="/dashboard"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-sm border border-gold/50 bg-gold/10 text-gold font-sans text-sm font-medium hover:bg-gold/20 hover:border-gold/70 transition-colors"
+          >
+            <span>Open interactive dashboard</span>
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </Link>
+        </div>
 
         <div className="flex flex-wrap gap-12 mb-8">
           <HeroStat label="Team" value="Your Team" />

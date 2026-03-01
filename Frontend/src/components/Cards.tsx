@@ -11,7 +11,9 @@ export const MetricCard = ({
   sublabel?: string;
   highlight?: boolean;
 }) => (
-  <div className={`p-6 rounded-sm ${highlight ? "glass-card-gold" : "glass-card"}`}>
+  <div
+    className={`p-6 rounded-sm transition-all duration-200 ${highlight ? "glass-card-gold hover:border-gold/25" : "glass-card hover:border-border"} hover:shadow-lg hover:shadow-black/10`}
+  >
     <p className={`font-serif text-3xl md:text-4xl font-bold mb-2 stat-glow ${highlight ? "gold-text" : "text-foreground"}`}>
       {value}
     </p>
@@ -31,13 +33,13 @@ export const InsightRow = ({
   title: string;
   description: string;
 }) => (
-  <div className="flex gap-6 py-6 border-b border-border/40 group">
-    <span className="font-serif text-2xl text-gold/20 font-bold shrink-0 group-hover:text-gold/40 transition-colors">
+  <div className="flex gap-6 py-6 border-b border-border/40 group transition-colors hover:border-gold/20">
+    <span className="font-serif text-2xl text-gold/20 font-bold shrink-0 group-hover:text-gold/50 transition-colors">
       {number}
     </span>
     <div>
       <h4 className="font-sans text-base font-semibold mb-1 text-foreground/90">{title}</h4>
-      <p className="text-sm text-foreground/40 leading-relaxed">{description}</p>
+      <p className="text-sm text-foreground/45 leading-relaxed">{description}</p>
     </div>
   </div>
 );
@@ -49,10 +51,10 @@ export const DataPanel = ({
   title: string;
   children: ReactNode;
 }) => (
-  <div className="glass-card rounded-sm overflow-hidden">
-    <div className="px-6 py-4 border-b border-border/40 flex items-center gap-3">
-      <div className="w-1.5 h-1.5 rounded-full bg-gold/60" />
-      <p className="font-mono text-[11px] tracking-[0.15em] uppercase text-foreground/40">
+  <div className="glass-card rounded-sm overflow-hidden transition-shadow duration-200 hover:shadow-lg hover:shadow-black/10">
+    <div className="px-6 py-4 border-b border-border/40 flex items-center gap-3 bg-muted/20">
+      <div className="w-1.5 h-1.5 rounded-full bg-gold/60 shrink-0" />
+      <p className="font-mono text-[11px] tracking-[0.15em] uppercase text-foreground/50">
         {title}
       </p>
     </div>

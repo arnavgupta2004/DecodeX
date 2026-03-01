@@ -4,42 +4,59 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Dark theme only — presentable, high-contrast palette */
 @layer base {
   :root {
-    --background: 222 33% 6%;
-    --foreground: 40 20% 92%;
+    --background: 222 26% 8%;
+    --foreground: 40 15% 96%;
 
-    --card: 222 28% 9%;
-    --card-foreground: 40 20% 92%;
+    --card: 222 24% 11%;
+    --card-foreground: 40 15% 96%;
 
-    --popover: 222 28% 9%;
-    --popover-foreground: 40 20% 92%;
+    --popover: 222 24% 11%;
+    --popover-foreground: 40 15% 96%;
 
-    --primary: 40 65% 55%;
-    --primary-foreground: 222 33% 6%;
+    --primary: 38 72% 52%;
+    --primary-foreground: 222 26% 8%;
 
-    --secondary: 222 20% 14%;
-    --secondary-foreground: 40 15% 78%;
+    --secondary: 222 22% 14%;
+    --secondary-foreground: 40 12% 82%;
 
-    --muted: 222 18% 12%;
-    --muted-foreground: 220 12% 50%;
+    --muted: 222 20% 14%;
+    --muted-foreground: 220 10% 58%;
 
-    --accent: 40 45% 42%;
-    --accent-foreground: 40 20% 95%;
+    --accent: 38 55% 38%;
+    --accent-foreground: 40 15% 96%;
 
-    --destructive: 0 60% 50%;
+    --destructive: 0 58% 48%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 222 18% 15%;
-    --input: 222 18% 15%;
-    --ring: 40 65% 55%;
+    --border: 222 18% 18%;
+    --input: 222 18% 18%;
+    --ring: 38 72% 52%;
 
     --radius: 0.375rem;
 
-    --gold-gradient: linear-gradient(135deg, hsl(38 70% 58%), hsl(42 55% 45%));
-    --navy-gradient: linear-gradient(180deg, hsl(222 33% 6%), hsl(222 28% 10%));
-    --surface-glass: 222 25% 11%;
+    --gold-gradient: linear-gradient(135deg, hsl(38 72% 58%), hsl(40 55% 48%));
+    --navy-gradient: linear-gradient(180deg, hsl(222 26% 8%), hsl(222 24% 12%));
+    --surface-glass: 222 22% 12%;
   }
+}
+
+/* Smooth scroll for anchor navigation (Overview, Baseline, etc.) */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+#root {
+  min-height: 100vh;
+  width: 100%;
 }
 
 @layer base {
@@ -67,53 +84,59 @@
   .font-sans {
     font-family: 'DM Sans', sans-serif;
   }
+
+  /* Accessible focus ring for keyboard users */
+  a:focus-visible,
+  button:focus-visible {
+    @apply outline-none ring-2 ring-gold/50 ring-offset-2 ring-offset-background;
+  }
 }
 
 @layer utilities {
   .gold-text {
-    background: linear-gradient(135deg, hsl(38 70% 62%), hsl(42 50% 48%));
+    background: linear-gradient(135deg, hsl(38 72% 60%), hsl(40 55% 48%));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .gold-line {
-    background: linear-gradient(90deg, hsl(40 65% 55%), transparent);
+    background: linear-gradient(90deg, hsl(38 72% 52%), transparent);
     height: 1px;
   }
 
   .gold-line-v {
-    background: linear-gradient(180deg, hsl(40 65% 55%), transparent);
+    background: linear-gradient(180deg, hsl(38 72% 52%), transparent);
     width: 1px;
   }
 
   .glass-card {
-    background: hsl(var(--surface-glass) / 0.6);
+    background: hsl(var(--surface-glass) / 0.7);
     backdrop-filter: blur(20px);
-    border: 1px solid hsl(var(--border) / 0.6);
+    border: 1px solid hsl(var(--border) / 0.7);
   }
 
   .glass-card-gold {
-    background: hsl(var(--surface-glass) / 0.6);
+    background: hsl(var(--surface-glass) / 0.7);
     backdrop-filter: blur(20px);
-    border: 1px solid hsl(40 65% 55% / 0.12);
+    border: 1px solid hsl(38 72% 52% / 0.2);
   }
 
   .section-divider {
     height: 1px;
-    background: linear-gradient(90deg, transparent, hsl(40 65% 55% / 0.25), transparent);
+    background: linear-gradient(90deg, transparent, hsl(38 72% 52% / 0.3), transparent);
   }
 
   .hero-overlay {
     background: linear-gradient(
       180deg,
-      hsl(222 33% 6% / 0.4) 0%,
-      hsl(222 33% 6% / 0.85) 50%,
-      hsl(222 33% 6%) 100%
+      hsl(222 26% 8% / 0.35) 0%,
+      hsl(222 26% 8% / 0.88) 50%,
+      hsl(222 26% 8%) 100%
     );
   }
 
   .stat-glow {
-    text-shadow: 0 0 40px hsl(40 65% 55% / 0.2);
+    text-shadow: 0 0 40px hsl(38 72% 52% / 0.25);
   }
 }

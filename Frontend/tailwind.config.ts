@@ -53,15 +53,15 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
         gold: {
-          DEFAULT: "hsl(40 65% 55%)",
-          light: "hsl(38 70% 62%)",
-          dark: "hsl(42 50% 42%)",
-          muted: "hsl(40 30% 30%)",
+          DEFAULT: "hsl(38 72% 52%)",
+          light: "hsl(38 72% 60%)",
+          dark: "hsl(40 55% 42%)",
+          muted: "hsl(38 35% 32%)",
         },
         navy: {
-          DEFAULT: "hsl(222 33% 6%)",
-          light: "hsl(222 28% 14%)",
-          mid: "hsl(222 25% 10%)",
+          DEFAULT: "hsl(222 26% 8%)",
+          light: "hsl(222 24% 14%)",
+          mid: "hsl(222 22% 12%)",
         },
       },
       borderRadius: {

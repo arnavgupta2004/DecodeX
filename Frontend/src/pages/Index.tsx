@@ -9,6 +9,9 @@ import {
 } from "@/components/Cards";
 import { ForecastChart } from "@/components/charts/ForecastChart";
 import { PenaltyBarChart } from "@/components/charts/PenaltyBarChart";
+import { CumulativePenaltyChart } from "@/components/charts/CumulativePenaltyChart";
+import { BiasChart } from "@/components/charts/BiasChart";
+import { Stage2VsStage3PenaltyChart } from "@/components/charts/Stage2VsStage3PenaltyChart";
 import { motion } from "framer-motion";
 import { useDashboardData, formatINR } from "@/hooks/use-dashboard-data";
 
@@ -17,11 +20,16 @@ const Index = () => {
 
   if (error) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-background">
-        <div className="text-center">
-          <p className="text-destructive mb-2">Failed to load dashboard data</p>
+      <div className="min-h-screen flex items-center justify-center bg-background px-6">
+        <div className="text-center max-w-md p-8 rounded-sm glass-card border border-border/50">
+          <div className="w-12 h-12 rounded-full bg-destructive/10 flex items-center justify-center mx-auto mb-4">
+            <svg className="w-6 h-6 text-destructive" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+          </div>
+          <p className="text-destructive font-medium mb-2">Failed to load dashboard data</p>
           <p className="text-sm text-foreground/50">
-            Run <code className="font-mono">npm run build:data</code> first
+            Run <code className="font-mono text-xs bg-muted px-1.5 py-0.5 rounded">npm run build:data</code> first
           </p>
         </div>
       </div>
@@ -138,8 +146,11 @@ const Index = () => {
               {chartData?.stage1?.length ? (
                 <ForecastChart data={chartData.stage1} showPenalty />
               ) : (
-                <div className="h-56 flex items-center justify-center border border-dashed border-border/30 rounded-sm">
-                  <p className="text-foreground/20 text-sm">
+                <div className="h-56 flex flex-col items-center justify-center gap-3 border border-dashed border-border/40 rounded-sm bg-muted/20">
+                  <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center">
+                    <svg className="w-5 h-5 text-foreground/30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2z" /></svg>
+                  </div>
+                  <p className="text-foreground/40 text-sm font-medium">
                     {isLoading ? "Loading..." : "No chart data"}
                   </p>
                 </div>
@@ -217,10 +228,8 @@ const Index = () => {
               {penaltyByStage.length ? (
                 <PenaltyBarChart data={penaltyByStage} />
               ) : (
-                <div className="h-48 flex items-center justify-center border border-dashed border-border/30 rounded-sm">
-                  <p className="text-foreground/20 text-sm">
-                    {isLoading ? "Loading..." : "No data"}
-                  </p>
+                <div className="h-48 flex flex-col items-center justify-center gap-2 border border-dashed border-border/40 rounded-sm bg-muted/20">
+                  <p className="text-foreground/40 text-sm">{isLoading ? "Loading..." : "No data"}</p>
                 </div>
               )}
             </DataPanel>
@@ -279,13 +288,38 @@ const Index = () => {
             {chartData?.stage3?.length ? (
               <ForecastChart data={chartData.stage3} showPenalty />
             ) : (
-              <div className="h-56 flex items-center justify-center border border-dashed border-border/30 rounded-sm">
-                <p className="text-foreground/20 text-sm">
-                  {isLoading ? "Loading..." : "No chart data"}
-                </p>
+              <div className="h-56 flex flex-col items-center justify-center gap-3 border border-dashed border-border/40 rounded-sm bg-muted/20">
+                <p className="text-foreground/40 text-sm font-medium">{isLoading ? "Loading..." : "No chart data"}</p>
               </div>
             )}
           </DataPanel>
+
+          {chartData?.stage3?.length ? (
+            <>
+              <DataPanel title="Stage 3 Cumulative Penalty">
+                <CumulativePenaltyChart data={chartData.stage3} />
+                <p className="mt-3 text-[11px] text-foreground/40 leading-relaxed">
+                  Running total of daily deviation penalty — how financial exposure builds over the test period.
+                </p>
+              </DataPanel>
+
+              <DataPanel title="Stage 3 Forecast Bias — C3 Compliance">
+                <BiasChart data={chartData.stage3} />
+                <p className="mt-3 text-[11px] text-foreground/40 leading-relaxed">
+                  Board constraint C3: forecast bias must stay within <span className="text-gold/80">−2% to +3%</span>. Shaded band shows the allowed range; the line shows daily (actual − forecast) / actual.
+                </p>
+              </DataPanel>
+
+              {chartData?.stage2?.length ? (
+                <DataPanel title="Stage 2 vs Stage 3 — Daily Penalty Comparison">
+                  <Stage2VsStage3PenaltyChart stage2Data={chartData.stage2} stage3Data={chartData.stage3} />
+                  <p className="mt-3 text-[11px] text-foreground/40 leading-relaxed">
+                    Same test period: red dashed = Stage 2 (post–regime shift); green = Stage 3 (constrained optimization). Shows where the targeted buffer reduced daily penalty.
+                  </p>
+                </DataPanel>
+              ) : null}
+            </>
+          ) : null}
         </div>
       </Section>
 
@@ -385,16 +419,16 @@ const Index = () => {
 
       {/* Footer */}
       <div className="section-divider" />
-      <footer className="py-12">
+      <footer className="py-16 border-t border-border/30">
         <div className="container max-w-7xl mx-auto px-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="flex items-center gap-3">
-              <div className="w-6 h-[1px] bg-gold/30" />
-              <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/25">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="flex items-center gap-4">
+              <div className="w-8 h-[1px] bg-gold/40" />
+              <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-foreground/40">
                 Decode X 2026 — N. L. Dalmia Institute of Management Studies & Research
               </p>
             </div>
-            <p className="font-mono text-[10px] text-foreground/20 tracking-wider">
+            <p className="font-mono text-[10px] text-foreground/30 tracking-wider">
               GRIDSHIELD | Forecast Risk Advisory Team
             </p>
           </div>
