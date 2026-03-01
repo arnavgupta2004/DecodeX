@@ -12,7 +12,7 @@
 |-------|------|-----------|---------|
 | **Stage 1** | Baseline Diagnostic & Cost-Aware Forecasting | MAPE: **0.28%** | Rs.1.16L (↓96.4% vs naive) |
 | **Stage 2** | Regime Shift & Penalty Escalation | MAPE: **6.75%** | Rs.1.89L (regime shift dominated) |
-| **Stage 3** | Board Directive — Constrained Re-Optimization | **All 4 constraints PASS** | Rs.2.00L (min-cost compliant) |
+| **Stage 3** | Board Directive — Constrained Re-Optimization | **All 4 constraints PASS** | Rs.1.79L (min-cost compliant) |
 
 ---
 
